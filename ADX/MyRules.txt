@@ -1,0 +1,6 @@
+Daily price is below the MA channel
+            only look for sell order
+
+
+Daily price is higher than the MA channel
+            only look for buy order

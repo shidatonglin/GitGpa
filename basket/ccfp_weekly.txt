@@ -1,0 +1,425 @@
+https://www.forexfactory.com/showthread.php?t=113181
+
+https://www.forexfactory.com/showthread.php?t=635569
+ccfpbv
+
+Awesome approach!!!. I Love long term set and "sort of" forget. Lets say this is more like set/forget/monitor profit .
+
+I wrote up a very simple Monitor EA. Just place the EA on the EURUSD M1 along with the CCfp Weekly indicator and select your lotsize and make any adjustments to the stop targets. The defaults are 500 profit, 200 stop. This EA will wait till london open of the first day of week to open trades on the pairs that are indicated on the chart. The EA will stop trading if either of the pip stops get hit. The EA will refresh the following week and start looking for the next london open to trade whatever pairs are called out on the chart. The indicator must be running on same chart with EA, otherwise EA will do nothing.
+
+I placed a display that shows current % gain etc. If it is in the way let me know and I will add an input to remove it.
+
+Also I added and escape which closes immediately ALL trades and stops the EA from continuing. Say for example you are away and have cell phone access to the MT4 app. You then see that you REALLY need to close all trades. Just place a pending buy order on EURUSD that has the stop entry price greater than 50 pips. Once you place that order the EA will close all trades (including the pending order) and stop from trading till next week or whenever you take over.
+
+I know, this EA is not really necessary since it is a once a week deal, but like I said, you still need to keep an eye on it. Keep an eye on the profit that is .
+I won't be up when London Open comes around, if the EA works properly it will make the trades according to what the ccfp indicator calls out.
+
+Anyhow please run it on demo, there may be bugs that need to be fixed. I turned it on myself and will be monitoring it from time to time.
+I am using a 200:1 leverage broker. Starting balance $500. Will use .01 lots. So my risk is -5% and gain is 10% for the week.
+
+Enjoy:
+JEss
+
+EDIT:
+I have updated the EA. This version does work and is the same as the version that is posted in my later post.
+
+
+
+Folks:
+I have fixed two bugs. New Update is attached. I also updated my previous post...
+1. FxSpartin pointed out that the EA had bought AudNzd instead of selling it. That is now fixed it will sell when it sells and it will buy when it supposed to buy.
+2. The EA was looking at the stop profit incorrectly. The EA was looking to stop trading if the week's profit was less than +200 pips... OOPS my bad. LOL. It's fixed.
+The EA now looks to stop trading if it hits -200 pips .
+
+If u guys want to try it again. Load this version on to the chart. Hit F3, you will then see a window with what is called GlobalVariables.
+Delete the Global Variable "ReachedWeekProfit". SInce it is still Monday and after the LondonOpen hour, the EA will open the trades.
+
+I have it up and running. All pips and percent gains are reported properly. The reason for the higher negative values you see on my chart is due to trades that I had taken earlier with this demo, before I reset it. The Day and Week % gains are what this account reflect since it was reset this week.
+
+This time it works like a charm 
+Jess
+
+EDIT: updated to version 3
+
+
+
+Folks, NEW UPDATE. Saw some minor things and fixed them.
+Please download an use this version. Even though the previous version is working it may encounter problems when determining weekly profit stop.
+
+Thnx
+Jess
+
+EDIT:
+updated this to latest version 3
+
+
+Done!. Version 3 will now detect any of the suffixes or prefixes that a broker may place on a symbol.
+
+Jess
+
+
+xmess7, Here is what I was thinking about. I still haven't been about to get it to open any positions no matter what time I put in. Broker time, GMT time, Chart Time, Local time. So does it only look at the time on Mondays only? Thanks. Bruce {image}
+UPDATE version 4
+
+brucech,
+Great idea. this will make the EA more flexible and allow the user to initiate trades on the days they want.
+But as for me I am sticking to the author rules. After all his 3 month record shows that it is profitable and well why change something that already works .
+
+But this can be used for testing, so here you go version 4.
+The inputs now have an entry for the day of the week you want the EA to start trading.
+
+So guys better understand what the EA does.
+1. The EA looks at the _DayOfWeek_ you selected and then waits for the "HOUR:minute" to start the trades that are listed by the ccfp indicator.
+It only does this in a 5 minute window. So if after 5 minutes u close the trades the EA will not open any new trades.
+
+2. The EA then monitors the total pips of the open trades until it reaches either the profit or stop pips.
+
+3. Once the stop targets are reached the EA then closed the trades and sets a flag to remember that it is done for the week
+
+4. The EA now waits for the new week and again like #1 looks at the _DayOfWeek_ and the OpenBrokerHour Inputs to determine when to start the new trades.
+
+That;s it in a nutshell.
+
+Oh if you really want to the EA fresh before the end of the week hit F3 and in the GlobalVariables window delete "week_pips" and "ReachedWeekProfit". You are essentially wiping the EAs memory LOL . So it will then think that it is a new week .
+
+If you guys think it is necessary I can add a STOP ALL TRADES button. This will close the trades and reset all that GlobalVariable stuff for you. It would be good for emergency stopping or just closing the trades cause you are satisfied with the profit. See the image.
+
+Take care,
+Jess
+
+EDIT: Version 4 does not have the Stop All Trades button, I am just showing what it would look like.
+
+
+
+UPDATE version 5
+
+Bruce, Meepstone: 
+I made a little small adjustment to way it calculates the % profits. I was seeing a divide by zero and usually that stops the EA but this may be the reason some of you are no seeing the display. lets see if this does the trick.
+
+If you don't see anything then do this: Hit Ctrl-B (objects list) and scroll down the objects window. Let me know if you see what I am pointing out in the image below:
+
+Thnx Jess
+
+
+osteo99:
+Found error and fixed it. Everyone using EA please upgrade to this copy.V6
+
+Update version 7
+Due to a report that the EA was not showing display and that it would affect other trades that are not part of the magic number. This version
+now makes the EA:
+
+- More selective on handling it's trades. Even if you enter a MagicNumber of 0 the EA will now ONLY monitor or close the trades that it made.
+
+- Add more informative text for when a user does not place the ccfp indicator on the chart. In the previous version the EA would just make a comment that there was no ccfp indicator and stop doing anything. Now it will tell the user if the indicator not present and that once loaded to restart the EA. I also added a note that the original ccfp indicator can also be used. I tested this and it works.
+
+EDIT: Error in line 287 of code has been fixed (thnx osteo99). EA now detects the correct number of open trades that belong to it.
+
+I recommend that everyone use this version so that your other trades will not be affected.
+
+Enjoy:
+
+
+
+Update version 8
+
+this version fixes the pricing and time issue.
+I think the logic should work this time.
+
+If you want to test it like now due the following:
+1. hit F3 and delete ReachedWeeklyProfit and week_pips from the GlobalVariable list.
+2. set your _DayofWeek_ to today and the hour input to the hour your broker has at this moment.
+this should trigger your trigger the trades at the very moment u close the EA inputs window.
+Now to test the TP/SL.
+1. change the SL and TP to something small like +10 and -10. 
+2. you should see the trades close as soon as the total basket reaches either +10 or -10 pips. 
+Once u are done. You will need to reset the globalvariables so the EA can start working for next week.
+Again hit F3 and delete the ReachedWeeklyProfit and week_pips from the GlobalVariable list. Then set your inputs as you had them and that is it. ready.
+
+guys I would do this but I am on my cell phone. So the code is being updated using my thumbs LOL. Maybe that is why I have all these errors or mistakes lol 
+
+
+Version 9 update.
+
+I just tested this version and it works. See the images below.
+
+1st image is with the template loaded, before the EA is loaded. The new EA can now select any missing symbols that are not in the Market Watch. I think this was one of the problems some of you saw, where it would not take all the trades that the ccfp called out.
+
+2nd image. I load version 9 and set it to open new trades in 2 minutes.
+
+3rd image. The EA opens all the trades right at 7:25 and starts to monitor the pips.
+
+One thing I have not done is, to program the EA closing all trades. That you will have to do manually for now.
+
+Enjoy:
+
+
+
+Did someone say they needed a LockProfit?? LOL.
+
+Version 10 includes a LockProfit in either pips or dollars.
+Set any of the two inputs and the EA will lock the basket profit.
+Please test next week.. any errors let me know..
+
+Just a reminder. The EA does not yet have code to close a basket at the end of the week (10 min before london close). This will have to be done manually. So if you still have an open basket at the end of the week, please close it manually.
+Also, if you do not see any trades or see less trades than expected check your margin. This can happen. If the EA detects that you do not have enough margin it will not take any more trades.
+
+ForexPinbar: Please only leave version 9 and 10 on page 1. The rest of the EAs are prone to errors. When version 10 is proved out you can then remove version 9 as well. Thnx.
+
+Edit:
+I had to re-read ForexPinbars post to understand that it was more of a trail stop type of setup than just a set BE. I saw 1 download, so whomever did that please re-download version 10. 
+
+Please only set your LockProfit when you see your basket in positive profit. Otherwise the EA may close all trades to soon. Think of this as a trailing stop. So for example If you see your basket at +300 pips, set the LockProfitPips to 100 at that instant. Otherwise if you set it higher than 300 pips the EA will close all trades that instant. This is done manually.
+
+
+
+xmess7 many thanks for your EA i was using version 9 this week. i have the inputs set to open trades on Mondays 8.30am GMT ; no trades were opened on monday. but the basket was opened yesterday morning (tuesday morning) at 8.30am GMT. can you please let us know if this is a bug that has been identified and if so has it been removed from version 10? thanks, blam
+Blam: Good catch. I apologize folks. In version 9 I started using a direct approach to catch the day you guys would pick. Usually when I code an EA I make it look at the previous closed bar. I did the same in this case. I instructed the EA to look at Yesterday's Day. Easy fix.. version 11 is ready for download.
+
+ForexpinBar: I also made a change that may help that funny thing you saw with the profit. please update the first page and only place this version cause the other version have several bugs.
+
+Keep me posted on anything. Have fun and make them pips.
+Jess
+
+
+Version 12.
+
+Ok folks, version 12 has the following new inputs:
+
+- SetProfitTargetsTo: Basket or Individual_Trades
+This sets the stop and take basket profit values to the whole basket or to each individual trade that is taken.
+
+The following is for the moving or trailing profit lock as specified by ForexPinBar.
+-StartProfitLockAt: Set a number to this input so that the EA will know when to start and set the profit lock in pips.
+
+-TrailingLockEvery: After reached StartProfitLockAt, the EA will use this input to determine the pip interval to see if the profit lock needs to be moved.
+For example if set to 200 pips. The Ea will move the profit lock every time it calculates that a 200 pips move is made. The profit lock will be set to
+HALF of the 200. etc etc.
+
+The StartProfitLockAt and TrailingLockEvery apply to which ever group u selected with SetProfitTargetsTo. So it will either monitor the whole basket or each individual trade. In addition when SetProfitTargetsTo = Individual_Trades, the basket_take_profit is set to 0.
+
+All these inputs are reset when the cycle begins.
+
+Please test and let me know if these things are working.
+
+ForexPinBar: Please add this version 12 to page 1 and keep version 11 as well.
+thnx
+Jess
+
+EDIT: I forgot to mention if you set StartProfitLockAt=0 the EA will just either close the basket at basket_take_profit or if it falls to basket_stop_profit
+
+
+Hi, I want to ask is possible to do it in order to use accounts on the micro as well? Sorry for the translator.
+shango61: Ask and you shall receive.
+
+Version 13 update.
+This version has the inputs that allow you to tell the EA when to close the basket. The default CloseDay is set for Friday and the hour is set to 00:00.
+Set the hour to the broker time that corresponds to GMT. If the EA sees that trades are still open it will close them on the day and hour you indicate in the inputs.
+
+Any questions let me know..
+
+Please note, that this feature and the others that were introduced in version 12 (individual trades, Profit lock etc) have not been tested. Hopefully the logic is ok and we will see all this stuff working fine next week. If not, we'll get it fixed.
+
+ForexPinBar, remove version 12 and add this version to page 1. Keep version 11, this would be the more stable one without the profit lock(automatic that is).
+
+
+Version 13, fix to version 12.
+
+Folks: I just got a report that version 12 does not work properly, it closes the trades immediately, no matter if u choose basket or Individual_trades.
+
+I found the issue and have removed it. Version 13 should now work properly for either basket or individual_trades. Please report any problems as they come up. If version 13 turns out not to work you can use version 11, that is the last stable version without the lockprofit or Individual_Trades features.
+
+What was the ERROR?:
+The issue was with the trailing equity stop that I had coded for the individual trades. I had the code on all the time, so that even if u selected basket the trailing lock profit for individual trades the EA would still close all the trades prematurely. I removed the trailing lock for the individual trades. The individual trades will still have their individual take profit and stops but those will be static and not be changed. The basket configuration should be ok and move the lock-profit accordingly.
+
+Forexpinbar: Please add this version to page 1 leave version 11 (last stable version) until we verify that version 13 is working.
+
+
+Thank you folks. some of you are real good at catching errors and explaining them. It really helps and makes it faster to fix bugs. Lol maybe I should have u guys come over to my projects to help... and make money LOL .
+
+Anyhow... I am attaching version 14. I corrected the error. So far I have tested several things EXCEPT the ProfitLock. IF you guys could please test that and let me know if it works that would be greatly appreciated.
+
+These are the testes I did on 2 different brokers:
+1. Tested that all pairs called out by ccfp are loaded and trades opened.
+2. Tested that take profit and stop are honored when the basket reaches either target.
+3. Tested that the EA can load any symbol with suffixes.
+4. Tested that the EA can set individual stop and take profits targets when the user sets the Set Target to Individual Trades.
+
+New things that were added:
+1. Added an input called PrintDebugInfo. This is optional. Set that to true and the Experts tab log EA activity so we can debug better
+
+Forexpinbar: Please place this on page 1. remove version 13.
+2. Changed default value of StartProfitLockAt to 0. This way when the EA is loaded it does not automatically go into ProfitLock mode. The user can select that later
+(edit) 3. I forgot to mention. Version 14 has an input called MaxTradesAllowed. This limits the number of trades that will added to the basket.
+
+I know that some of you had other issues. We'll deal with them if they appear again.
+
+
+Version 15
+
+Ok I went ahead and did the following:
+
+1. Added a big OLE RED close all trades button (tested it and it works). It will load DISABLED but when trades open it will ENABLE itself and be ready to use.
+if the button gets in the way let me know. Download the zip file and unzip the dll file into the Libraries Folder. U need the dll for the buttons to work. I have used this dll for many years and have not had any problems. Once u load the dll it may ask to go to a site and register it. It is no problem they do not do anything with your emails, I have registered several times. 
+
+2. Open Hour is now in GMT. So 00:00 hour corresponds to GMT 0 hour. 
+
+3. The EA will now attempt to close any trades that are still opened by Friday, 20 minutes before the NY close. This is hard coded into the program. I made it 20 minutes for in case it does not work and you guys can close trades manually. If it works I will change it back to 10 minutes so as to reflect the rules of page 1. I will test this tomorrow and let you know if it works.
+
+4. The pip count is now corrected. Please be aware that even though the pip profit count now includes swap and commission you will not see the corresponding exact pip count to the $ profit. The addition of swap and commission make the pip counts differ. Any questions let me know.
+
+Here's an image with some changes to the display and view of the close all trades button disabled.
+
+
+Version 16.
+
+1. removed Dll requirement. Yep you guys can rest easy no more DLL needed for the button . Now I will monitor your machines LOL!
+
+2. "Close ALL Trades" button works like a charm
+
+3. Tested GMTOpenHour and it worked like a charm.
+
+4. Toscano, Elovv try to see if this version will open and/or close trades on the brokers u are using. I added some code to the open trade function to see if it can help with REQUOTE or INVALID PRICE errors. That is more than likely the problem you guys are having.
+
+Enjoy:
+
+
+
+Merylin: Awesome catch!! It turns out that this was the error:
+StringFind(OrderComment(),"CCfp-Weekly_trade")>-1)
+Should be
+StringFind(OrderComment(),"CCfp-Weekly_trade")==-1)
+
+Do u see that I had the ">" instead of "==" ?? First one means "greater than" the other means "is Like"
+Doesn't that bit... such small errors and when u see them u say what's wrong!! LOL Not until REALLY see it that it you go DUDHH!H!H LOL
+
+Toscano: this might be why u don't see trades yourself... please let me know. Remember to delete all Global Variables and reload EA.
+
+Version 17 with corrections:
+
+
+Version 17:
+
+Just in case folks missed the post.
+
+This fixes the _OrdersTotal() function which only looks for trades from this EA. On previous versions it was not doing this and thus that is way some folks didn't see any trades.
+
+Moved button into display area. Now if you resize your window the button will not move and/or interfere
+
+
+
+Hello Jess, As far as I can tell it is not activating either break-even or stop-loss. This basket went pretty high so should have easily triggered break-even but is now back showing a loss. {image}
+Aweseome thx
+
+I went ahead and fixed the closeall function. Yep it had the same error. Try it now.
+
+Go to this post for latest version 17:
+http://www.forexfactory.com/showthre...95#post9592695
+
+
+
+
+Version 18 update.
+
+Folks: From now on I am going to post the new updated on my website. 
+This way when it is deemed that the update is stable Forexpinbar can place the copy in page1. Just as he has right now version 14 being the stable version.
+So version 18 is the beta version and will be called this until we all agree that it works. Once that is done then Forexpinbar can go to my site and upload the version to pg1 of this thread.
+
+I will explain in the next post the fixes and the updated.
+
+I placed a file with my email address. So now, I recommend that you email me with any observations/suggestions/issues etc. This way the thread will less cluttered with our debbuging. 
+
+http://xm7.info/ea/ccfp_weekly
+
+If you have any issues downloading it let me know.
+Thnx
+J
+
+PS forexpinbar if you have the time go back and delete any of the updates on my posts and just place this instead: 
+For latest version go to:
+http://xm7.info/ea/ccfp_weekly
+I don't have access to edit all earlier posts so I will try to do this with as many of my posts as I can.
+
+
+
+
+Version 18 tests/fixes/updates.
+
+1. The brokerCloseHour worked, it closed all opened trades at about 20 minutes before the close of market. I see one of you didn't see it work in the version you have. Check this. 1st make sure that the GMThour is correct for your broker. See if the difference on the display is correct. Next look and see when your broker's hour stopped. That hour should be equal to about 21:59 GMT or something close to that. Let me know if what you found out.
+
+2. Added Max/Min PipCount to display and a log file that will record each hour the pip total of basket. It also contains the max and min so that we can detect when they happened. The data is setup raw. I didn't do anything fancy. So those that know how to handle excel you just need to select your ranges etc etc.
+A new Logfile is recorded for each week. Take care of this, cause you can end up with ALOT of Files. When you are done or don't need it just set the input Log_MaxMin_PipCount to false. LOGFILE will be located in the MQL4/Files folder
+
+3. Added the SetLockProfit information to the display. I also tested this and it works. The display shows you where the basket profit is locked and the next pip level when the lock will be updated.
+
+4. Re-labeled the global variables. I did this so that if you had any other variables these could be distinguished. This is mainly for those that will be testing the EA.
+So before you test first unload the EA then hit F3 (or go to Tools==>Global Variables) and delete all of the globals that start with "xm7". Delete any old ones if u still have them too. Then start up the EA again. You should be set to testing anything you need to test.
+
+5. Reinstated the Profit Lock for individual trades. Now the EA will also monitor each trade and set profit lock target for each open trade. Even though u will see the SetLockProfit status on the display, that will not affect the individual trades. The EA monitors each profit lock status for each trade individually.
+I did no have time to test, I will try to test it next week. If you see that it does not work just set the input StartProfitLockAt=0.
+
+Ok guys here are some images to go along with the words:
+
+
+
+https://www.forexfactory.com/showthread.php?t=635569&page=42
+
+
+
+Hi ES Trader, greetings from Germany.
+
+This is better than sliced bread. I made more pips in a week than in a month with other methods. Congratulations.
+
+Now, I think, we should point the youngsters (I am about your age, 60) to some basics of trading before they become too enthusiastic. 
+
+What one needs is a trading plan (when, how, where and how much plus targets, realistic targets that can be achieved). 
+
+You give them here all the necessary tools. What they must learn is having patience. I learned it, the hard way (not: "Lord, give me patience. NOW").
+
+One poster has something in his signature about Albert Einstein and "the biggest power of all: compound interest"
+
+Compound interest means to add the profits to your capital and re-calculate the new lot size each and every day.
+
+Therefore, what, if we say: "I want to make a Million in 18 working months time from starting out with 1000 units "? Is this possible? Yes, not easy, but possible. What you need to make is 1.94% profit each and every of these (roughly) 360 days (or 19.4 units of your compound capital per day). 
+
+These calculations are linear and you can find a dozen of calculators on the internet for checking. 
+
+If you can start with 5000, it needs 1.49% per day (or, with the original 1.94% you'll end up with 5.047.037,54 after 360 days, or you achieve the million already after 276 days).
+
+Last figure: start with 10.000 and you need to make 1.29% per day. 1.94% would give you the double of the 5000-figures (10.094.075,10). Or the million would be available already after 240 working days (exactly 1 year).
+
+With these figures you can play around for SL and TP's. One also could say: 1.94% per day is 9.7& per week. Still works. 
+If you achieved your daily goal, you can continue, but with caution. Try to not jeopardize what you have already won. Get out, it you are in danger of losing some of what you need. There are better trades down the road. Don't get into "hope-mode". What mostly follows is the "dam...-mode". Think, everyone of us has made this experience not only once. 
+
+Do not let your trading be too much influenced by the 3 most dangerous human attitudes: greed, fear and envy. 
+
+I am not the guy who loves dancing on a broken-out volcano, means trading w/o neither stop loss nor take profit. Imagine another event like 9/11 (sorry, but this could possibly happen, couldn't it?) Things like that could wipe out the biggest account if they catch you on the wrong foot. What you need after the event, is: capital to continue trading. So protect at least so much that something is left after a cruel event. 
+
+So far my 2 cents.
+
+And, thanks again, ES-Trader, for your generosity to share this system with us. 
+I strongly believe it will also work in the future (now, that the bankers have again enough money to make other stupid things ;-) ). There will be interest rates increasing and decreasing, Hurricans and Taifuns threatening oil production, water and energy will become a rare goods. 
+
+All the best
+
+
+
+I almost doubled the account in a day through a completely automated setup. 
+
+Each EA is set with a 100 pip SL and 30 pip TS with move to BE + 1 at 30 pips.
+
+I'm riding a pretty big loss right now.
+
+
+
+
+Hey Skyline,
+
+Which EA are you using?
+
+It doesn't look like RR's or Ferrux's in your pic and i can't find an ES_Trader_EA in the attachments?
+
+just curious...
+
+thanks
+It's one I coded only for me just to understand this system (I usually code EA to better have an idea on how it should work a trading system), but you can use other EA/indicator you found here it works the same as mine.
+  

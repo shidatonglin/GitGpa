@@ -1,0 +1,33 @@
+
+https://www.metatrader5.com/en/metaeditor/help/development/compile
+
+Compilation from the Command Line
+A MetaEditor executable file can be used as the compiler when working with a source code in external editors. The compiler is started from the command line, specifying the path and name of the file you want to compile:
+metaeditor.exe /compile:"<full path to the source file>"
+metaeditor64.exe /compile:"<full path to the source file>"
+Example
+"C:\Program Files\TradingPlatform\metaeditor64.exe" /compile:"C:\Program Files\TradingPlatform\MQL5\Scripts\myscript.mq5"
+Mass compilation of files in a directory
+
+For mass compilation, set the path to a folder rather than to a file. All source code files in the specified folder will be compiled. Subfolders are not included.
+Re-compilation is not performed if a source file already has the appropriate compiled version.
+The example below displays mass compilation for the \MQL5\Scripts folder.
+Example
+"C:\Program Files\TradingPlatform\metaeditor64.exe" /compile:"C:\Program Files\TradingPlatform\MQL5\Scripts"
+Custom MQL5/MQL4 folder with include files
+
+Programs can use additional include (*.mqh) files located outside the current platform's working folder (for example, in the \MQL5 folder of another platform copy on the same computer). Specify the path to this folder using the "/inc" key for correct compilation.
+Example
+"C:\Program Files\TradingPlatform\metaeditor64.exe" /compile:"C:\Program Files\TradingPlatform\MQL5\Scripts" /inc:"C:\Program Files\TradingPlatform 2\MQL5"
+Compilation log
+
+Specify the additional /log key for more information about the compilation process. In this case, <source file name>.log compilation log file is created in the folder containing the source file.
+Example
+"C:\Program Files\TradingPlatform\metaeditor64.exe" /compile:"C:\Program Files\TradingPlatform\MQL5\Scripts\myscript.mq5" /log 
+Log file: C:\Program Files\TradingPlatform\MQL5\Script\myscript.log
+Syntax check
+
+To check a program syntax without compilation, launch MetaEditor from the command line with the /s and /log keys (so that results of the check are displayed in the log file).
+Example
+"C:\Program Files\TradingPlatform\metaeditor64.exe" /compile:"C:\Program Files\TradingPlatform\MQL5\Scripts\myscript.mq5" /s /log 
+File with the results of the check: C:\Program Files\TradingPlatform\MQL5\Script\myscript.log

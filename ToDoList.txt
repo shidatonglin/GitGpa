@@ -1,0 +1,29 @@
+1. Forward test inside bar and engulfingbar ea.
+
+
+MQL references in git book
+2. https://janfon0715.gitbooks.io/mql4_reference/content/cn/
+
+MQL variables
+
+local var : defined in a function or block
+global var : definde outside functions and blocks
+			 same as definde of functions
+local static var : 
+					defind in a functions
+					init when the program load
+                    its value keep the previous call of the functions 
+global static var : defind outside functions
+					init when the program load
+
+input var : can not change during program run
+extern var : can change during program run
+
+
+
+2. https://tickstory.com/download-tickstory/
+
+
+3. https://ovo.cz/products/free-mt4-utilities/offline-test-helper/
+
+4. http://www.forexmt4.com/

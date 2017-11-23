@@ -1,0 +1,67 @@
+You might have seen or heard about the the beautiful looking Ichimoku Kinko Hyo indicator ((Ichimoku Kinkō Hyō, or, simply, Ichimoku), with its eye-catching moving averages and dynamically unfolding clouds. 
+
+The name translates from Japanese to "Equilibrium chart at a glance," aptly describing how its five separate components come together to form a "whole" picture of price action to be seen "at a glance". One simple look at an Ichimoku chart is said to provide its practitioners with an immediate understanding of sentiment, momentum and trend strength. 
+
+Excel Markets EQUITY : DRAWDOWN Demo Account ContestThe background story is intriguing. 
+
+While an indicator is usually formulated by statisticians or mathematicians in the industry, this indicator was, strangely enough, developed before WWII by a Tokyo newspaper writer named Goichi Hosoda and a handful of assistants running multiple calculations. 
+
+After 20 years of testing, Mr. Hosoda finally released the system to the public in a book published in 1968. The indicator has been used extensively in Asian trading rooms since Hosoda published his book, though it did not make its appearance in the West until the 1990s. 
+
+The Ichimoku Kinko Hyo indicator consists of five main elements: 
+Tenkan-sen ("turning line"):  a 9-period fast moving average based on High-Low difference rather than traditional Close levels, 
+Kijun-sen ("standard line"): a 26-period slow moving average based on High-Low difference rather than traditional Close levels, 
+Senkou Span A ("1st leading line"): average of Tenkan-sen and Kijun-sen plotted with some shift in the future,
+Senkou Span B ("2nd leading line"); average of maximum and minimum price for the given period plotted with the same shift in the future,  
+Chinkou Span ("lagging line"): price Close level plotted with the same shift but in the past. 
+
+Senkou Span A and B together form what is known as Kumo cloud.
+
+The chart below shows the five elements in their complete set-up:
+
+
+
+Hello Samer 
+
+ regarding the signal i use only the full complete strong signal , this means that this means for a long trade i go when the price is above the cloud (Kumo crossed+ cloud break out ) and then i wait till senken + Kijun cross on the direction of the trend ,also SPAN will be above the price curve , all the charts i provided contain this strong signal and the pic here shows it also .
+
+ My entry point will be always after senken kijun cross 
+
+ regrding the next week i said at the start of the week i'll not look for a long position as long as the price is under the cloud ( it is confirmed in all the TFs ) if the price pops up the cloud i'll look for a long position 
+
+ feel free to ask about anything 
+ wishing you luck 
+
+
+ good one my friend , i take in my consideration all the TFs even the monthly 
+ if you take a look at the daily chart you'll see price closed under senken line and this will help a pullback to kijun ( as shown i the pic )
+ if take a look at the weekly chart you'll see price is going to test the senken line and also inside the cloud and this will offer more consolidation ( as shown )
+ if you take a look the monthly chart you'll notice that the price couldn't break the Kijun line for the whole year ( as shown )
+
+ but how cares we are intra day traders we need to trade what is happening today , so i pref to follow the major on 4Hrs and 1Hr , and the 30 mins 15 mins will be my guide during the day 
+ and the 5 mins is the prefect entry 
+
+ keep it up , keep asking
+
+
+ The Chikou span is the current price shifted back 26 times , so if we got a long signal and the Span is above the candle this means signal is confirmed 
+ this example might clear it for you, the yellow line i drew in the cahrt shows that the SPAN is above the candle and the signal is a long one so it is confirmed , if still not clear please tell 
+ feel free to ask anything 
+
+
+ Hello moxie 
+
+ you may check first chart i posted in P3 it will show what i mean with the complete strong signal 
+
+ my rules again are as follows 
+
+ for long entry 
+ -Price above the cloud ( KUMO Crossed )
+ -Sneken ( red ) crosses Kijun ( blue )
+ -Span is above the price 
+ i go long and my stop will always be below the cloud with a small buffer
+ and vice versa for short entry 
+
+ Hope it is clear no, if not i can explain more 
+
+ Wishing you all the luck 

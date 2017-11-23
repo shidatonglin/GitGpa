@@ -1,0 +1,41 @@
+int EventMinute1 = iCustom(
+               NULL,            // symbol 
+               0,               // timeframe 
+               "FFC",           // path/name of the custom indicator compiled program 
+               false,            // true/false: Active chart only 
+               true,            // true/false: Include High impact
+               true,            // true/false: Include Medium impact
+               false,            // true/false: Include Low impact
+               true,            // true/false: Include Speaks
+               false,           // true/false: Include Holidays
+               "",              // Find keyword (case-sensitive)
+               "",              // Ignore keyword (case-sensitive)
+               true,            // true/false: Allow Updates
+               4,               // Update every (in hours)
+               0,               // Buffers: (0) Minutes, (1) Impact
+               0                // shift 
+        );
+    int EventImpact1 = iCustom(
+               NULL,            // symbol 
+               0,               // timeframe 
+               "FFC",           // path/name of the custom indicator compiled program 
+               false,            // true/false: Active chart only 
+               true,            // true/false: Include High impact
+               true,            // true/false: Include Medium impact
+               false,            // true/false: Include Low impact
+               true,            // true/false: Include Speaks
+               false,           // true/false: Include Holidays
+               "",              // Find keyword (case-sensitive)
+               "",              // Ignore keyword (case-sensitive)
+               true,            // true/false: Allow Updates
+               4,               // Update every (in hours)
+               1,               // Buffers: (0) Minutes, (1) Impact
+               0                // shift 
+        );
+
+
+int EventMinute = (int)iCustom(NULL,0,"FFC",0,0);
+   //if(EventMinute == 30) { .. YOUR CODE .. } // 30 minutes before the event
+   
+   int EventImpact = (int)iCustom(NULL,0,"FFC",1,0);
+   //if(EventImpact == 3)  { .. YOUR CODE .. } // High impact event

@@ -1,0 +1,132 @@
+https://www.forexfactory.com/showthread.php?t=526735
+
+Trading is part of my life and TDI indicator and APB are the main parts of my trading style. I appreciated lots of traders from Trading Made Simple thread where it made me become who I am today.
+As per title stated I use 30 minutes chart to enter and exit my fx trades ( I do check other time frames (M15 H1 H4) before taking my trades just to see any conflicts/facing S/R etc,. Sound straight forward doesn't it? No, why? Because things happen in between entry and exit that make it not so straight and that is still a learning curve to a lot of traders and myself
+I will post my trades here for sharing and discussing purposes. Please do not follow them without doing your due diligence. I take no responsibilities for any losses that may occur at your end.
+my favorite set ups are divergence and hidden divergence.
+
+Rules: TDI green crossed red off S/R, trade away from Daily Open Line (DOL), 200 EMA, and weekly S/R.
+
+I enter on M30 with these confirmation:
+- TDI cross/bounce
+- APB same color with my trade
+- @S/R
+- TL (trendline) breakout or special candle patterns (can be outside bar/inside bar/pull back candle,lower high/lower lows, higher high/higher lows, etc.)
+Note: I use Stochastic for extra confirmation and Awesome to see market momentum. Main focus is on price actions around support/resistant levels and get in a trade when TDI crosses forming divergence/hidden divergence.
+
+Locations are very important, and if you have divergence set up at good level, 99.99% you will have nice bag of greenies, but make sure you don't go short while TDI>68, stoc>75 (overbought= market too bullish ), nor go long while TDI<32 (oversold = too bearish), stoc<25. In addition with those conditions and with TDI cross and APB same color, it will be safer to go short when Stoc<50, and long when stoc>50.
+
+My trading time: Frankfurt Open(FO), London Open (LO), New York open (NY)
+
+English is not my first language so I will try to explain by showing it on my charts if needed.
+
+I will try to post my trades as early as possible after I entered them if I have time to do so. Managing trades is still my hardest part where I need to master it, where I need to master my emotion
+
+As I am a active trader I might not be available here all the time. I also might not have all answer to all queries, and the purposes of this thread is to share and discuss so please assist one another and important thing is be helpful and stay positive even when your account is not positive on the day, we all have positive and negative days, so deal with it in a appropriate manner by taking our own responsibilities and not blaming the market nor others.
+
+This is an advance system for those who knows the basis PA. If you are new to FX, please give yourself time to study the basis first on babypips then come back here to join us and learn more.Please go to paper clip on top right hand corner of this thread to download all indies I use.
+
+Happy trading!
+My latest template in black (LKC TMS 2017.zip) has been added on 8th Jun 2017 as requested.
+
+
+https://www.forexfactory.com/showthread.php?t=437318
+
+TDI and Stochastic strategy
+
+This is my strategy for making money. It is similar to eelfranz's "Trading Made Simple".
+
+Set up TDI Indicator. Setup Stochastic Slope indicator as OVERLAY (on top of TDI). Remove the fast moving line of TDI (turn it black so you cant see it), so only the red line remains (I changed the colour to green because it stands out better). Now remove the blue dotted line from the Stochastic Slope (again turn it black). Also, remove the 80/20 lines from Stochastic Slope aswell. See picture attached for my personal setup. THIS ONLY WORKS WITH AUDUSD, dont waste your time with other pairs, I have tried.
+
+Now, all you have to do is this:
+1) Wait for TDI to move above 68, or below 32 (from now on we will assume TDI moved above 68 for simplicity).
+2) When TDI is above/on the 68 line, wait for Stochastic to cross it downward. As soon as it crosses downwards, enter short (It MUST cross and CLOSE below the TDI line).
+3) Every 25 pips price moves against you from entry, take another position of equal size.
+4) When TDI touches/crosses the 50 line, I place a stop loss just above the recent highs.
+5) Regardless of how many positions I have, I ALWAYS take some profit at 100 pips. (I have never had to take more than 6 positions at the MAX)
+6)***IF TDI starts moving down, then goes back upwards, whether it is a double top or continues to go up even higher, I keep taking positions but look to close at the overall break-even point (this happens once every.....say 4 trades, but I have NEVER lost money, just stick to the strategy).
+7) If you try to only trade with the trend, you will hardly see any TDI double tops/breakouts, but I disregard trend direction and always trade both ways, in the worst case I break-even.
+8) The only time I have ever lost money is when TDI touches/breaches the 50 line, I set my stop-loss, then it goes back. Depending how many positions you have, one will likely be break-even and the rest will be at a small loss (nothing compared to the gains, almost no comparison)
+
+
+Attached is a picture of my setup. If you have any questions you can ask, I will answer when im around, but I recommend you guys try it and make some comments. Please do not bash my system if you have not read all the rules and at least looked at my/your charts to see that this is not bs.
+
+P.S. Whenever I mentioned double top above, I meant on TDI, not price. Also, I only use 1hr charts, and ONLY USE AUDUSD!!!!!
+
+P.S.S. I forgot to mention the green vertical lines I have drawn represents a long, red for short, and white was a trade, but turned out as a double-top on TDI so I changed its colour.
+
+
+https://www.forexfactory.com/showthread.php?t=511468
+TMS and Me
+Hello everyone. Welcome to my journal.
+
+I would like to use this thread to record my trades and also share my story how I got here. I was introduced to FOREX somewhere in 2012 and only recently have become very satisfying with my trading.
+
+TMS is not the only method I trade. However it's the one I like the most and trade most often, hence the name of this thread, TMS & Me. Also I love Marley & Me   Picked it up for the 7th time, still enjoying.
+
+I had run into may road bumps along the way, hopefully what I share here would be more than a useless rant that could help you attain the right mind set and psychology for successful trading 
+
+You may have heard the saying "FOREX is a psychological game," it's true.
+
+Heads up that I trade less and less these days so I may not post that often. I have quite a lot of things going on that distract me from trading. However, the more distractions I have, the better my trade results. Sounds weird but I'm not kidding.
+
+Trading Method & Me
+
+Today I trade with 2 methods. Hourly TMS, and daily price action.
+
+I like TMS. Signal is simple. Identifying good TDI can happen at a glance.
+The only extra thing on my chart is TMA true.
+
+To a lesser extend I like daily price action as well.
+I like it less than TMS due to its longer term nature.
+My trades would often be in the negative for weeks during which I can't take any more trades, else I'd be over trading.
+
+You can probably tell now that I like clean charts. That's just personal preference, whatever make pips, make pips.
+
+I'm also having fun watching/reading Jarrat Davis' fundamental analysis.
+I don't trade his method, his analysis however is a lot cooler when you talk about it.
+Imagine you're hanging out with non-trader friends. You say, hey, here's what the Bank of England is up to... in oppose to, hey, I see a pin bar in this chart.
+The former actually sounds like you know something, right?
+
+... ok kidding aside, it's just fun to know what's going on
+
+Newbie Trap & Me
+
+My brother introduced me to FOREX somewhere in 2012. Right away I made a few lucky wins on demo for some hundred pips. I then jumped straight to live account despite his warning that I needed at least ... some amount of demo time I can't recall, and that I needed a proper system. I wanted to make money NOW and didn't want to miss the opportunity.
+
+And that was how I started my journey; a few thousand $$$ down the drain. In less than a week!
+
+
+https://www.forexfactory.com/showthread.php?t=551041&page=16
+
+New TDI Method v2
+
+
+The so-called "New TDI Method" is a trading strategy based on the modified TDI indicator. I think the original TDI trading is not simple, the reaction is not sensitive. So I do not use the original TDI indicator, but the use of alternative solutions to simplify. I only apply three indicator lines instead of the original TDI:
+1. RSI (13) as the relative strength index, the application price is close, the color is set to be colorless;
+2. SMA (7) as a trading signal line (TSL), applied to RSI, the color is red;
+3. SMA (2) as the RSI price line (RPL), also applied to RSI, the color is green.
+For your convenience, I have attached a template that can be downloaded directly.
+
+New TDI's trading method is the same as the original, when the green price line (RPL) with the red trading signal line (TSL), it generates a trading signal, at same time, added the reverse entry point, OBOS strategy etc. In addition, the position can be a variety of ways (SL, TP, reverse cross, BE).
+
+Specific methods are as follows:
+1. Symbol............All pairs(I generally trade20~ 28 pairs）
+2. TimeFrame.......M30
+3. SELL Signal（See figure below）
+The green line (RPL) crossed down red line (TSL) after Pre-Candle Close,
+and red line (TSL) >68
+4. Buy Signal（See figure below）
+The green line (RPL) crossed up red line (TSL) after Pre-Candle Close,
+and red line (TSL) <32
+5. Add Orders（Corrected）
+If the price is running in the Opposite direction as orders, then every 20 points to increase a position, up to 6.
+6. Exit Trading
+a）A single currency pair or basket of profits reached TP；
+b) A single currency pair or basket of profits reached SL；
+c) When the opposite direction of the trade signal;
+d) When setting the break even point, the price is withdrawn to BE.
+Next step, after I'm considering the maturity, will increase the number of signal filtering options.
+
+Trading happiness!
+Good luck, everyone!

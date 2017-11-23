@@ -1,0 +1,52 @@
+Break out strategy!
+
+Thanks for your feedback. Be advised that the time used in the settings is local broker time, so unless you are in the same timezone than me you can't use the default settings to follow ErollZach's strategy.
+I may change this in the future to use gmt times so that everybody can use default settings the same way.
+ 1 
+
+
+Guys,
+
+Attached is a new version 1.3 for this EA. It is a minor update to :
+Fix the bug that opens an order when the candle close doesn't confirm the breakout sometimes despite the fact that WaitForCandleToClose=true in settings. See https://www.forexfactory.com/showthr...2#post10057682
+Add a BreakoutPipsConfirmation parameter as asked by htawfik above. When WaitForCandleToClose=false, this parameter will allow to open a trade when there is breakout + BreakoutPipsConfirmation pips.
+
+Testing GJ and GU with good results on H1 so far.
+
+Is it possible to add some Moneymanagemt to the EA?
+ 1 
+
+has made a good start for me on H1 last tokyo session, several pairs . thanks for coding this
+ 1 
+Hi guys,
+
+Attached is a new version 1.4 of the EA. The new features in this version are:
+ 
+SL and TP can be set in Pips or Fibonacci %. Use the new TPSLstrategy parameter to specify if your StopLoss and TakeProfit values are in pips or fibo %.
+The default is Fibonacci.
+BreakEven : you can set BreakevenAfter > 0 if you want to use the BE feature. It will move SL to "BreakevenValue"pips when the price goes "BreakevenAfter" pips in your favor.
+BE is disabled by default with BreakevenAfter = 0.
+Enjoy!
+
+
+Hello guys,
+
+Thank you for such amazing EA, I tested version 1.3 with no issues however, version 1.4 does the following:
+
+It opens the order at the moment you load the EA into the chart, it does not wait for a confirmation candle and even opens the order when the price is still withing range and it has not break yet the Fibo 100% or 0%.
+Something else to mention is that if there was a big candle that closed near our TP level (161.8 fibo) and it closed there, the EA will still open an order so you will have 2 options
+1- wait for the retracement.
+2- wait for the price to move to the next fibo extension, which is not very common.
+ 1 
+By default WaitForCandleToClose=false will trigger a trade as soon as the high or low of the box is broken.
+But note that WaitForCandleToClose=false works with BreakoutPipsConfirmation parameter that is set to 5 pips by default (will be 0 by default starting from v1.5 because it can be confusing). In this case, it means the trade will be opened at high/low of the box + 5 pips
+
+Guys,
+
+Attached is a new version 1.5 of the EA. The new features in this version are:
+new EntryPoint parameter (still experimental) to specify the entry point when a breakout occurs. If TPSLstrategy is fibonacci and EntryPoint = 100, EA will open a instant market order. In all others cases, the EA will place a pending order to wait for a retracement (and try to get a better R:R) :
+if TPSLstrategy is fibonacci, the entry point will be a fibonacci value too
+if TPSLstrategy is pips, it will be a pip value
+new AsianSessionPipsMin parameter: like AsianSessionPipsMax, EA will not trade if the breakoutBox range is lower than this pips value.
+Each time a new fibo is drawn by the EA, the previous one will be removed to keep a clean chart.
+I will try to post some example for the EntryPoint if it's not clear enough.

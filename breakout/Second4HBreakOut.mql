@@ -1,0 +1,26 @@
+Another great Breakout GBP/JPY System (Dachel's Simple system)
+
+https://www.forexfactory.com/showthread.php?t=93126
+
+Hello everybody.
+
+Im posting my new strategy here, this is my first post in this site and I wish you happy pips with it.
+
+I used (IBFX) to perform the back test. 
+
+Here's the deal.
+
+1. Open the 4 hour chart 
+2. Take the Hi and Lo of the second candle of the day (GMT)
+3. Place an Buy order 10 pips above the Hi and 10 pips below the Lo
+(you can use the Eagle Breakout Indicator for easy visualization)
+4. When the price hit an order cancel the other.
+5. You should place your SL at the other side of the channel.
+(don't enter the trade if the channel is more than 200 pips)
+6. You should place the TP at the size of the channel.
+7. Close the trade at the end of the week if given the case.
+8. If your trade is still on by the next breakout stay in until you lose or win.
+
+This baby gave me in my manual backtest in 2007 around 4658 pips. This sitem can be improved if someone want to try a diferent strategy or maybe a Breakeven or SL. Anyway I guess is a very profitable system. Try it on a demo or backtest to check by yourself. Any sugestion is welcome as weel as for backtest for other currencies and other years. 
+
+Well I guess that's all for now, I leave you my monthly results.

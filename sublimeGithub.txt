@@ -1,0 +1,32 @@
+2. Git配置，与GitHub连接
+
+配置全局参数
+
+Git的配置主要包括用户名，邮箱的设置，以及生成SSH密钥公钥等。
+
+首先运行一下的命令设置git提交代码时你自己的用户信息。
+
+git config --global user.name "username"
+git config --global user.email "username@email.com"
+在Sublime Text中使用的时候还需要设置 push.default参数。使用命令行窗口的时候没有问题，在Sublime Text中用push命令的时候就提示需要设置这个参数。
+
+push.default参数主要是设置在执行push命令是的策略，主要的选项有以下几个：
+
+nothing : Do not push anything
+matching : Push all matching branches (default)
+tracking : Push the current branch to whatever it is tracking
+current : Push the current branch
+这里我们手动设置成默认值：
+git config --global push.default matching
+生成SSH key
+
+到开始菜单，找到“Git Bash”，运行之，并执行以下命令：
+
+$ ssh-keygen -t rsa
+程序会提示您输入密钥的文件名，比如输入github，按回车即可。
+然后会要求你输入一个密码，将来在使用密钥的时候需要提供这个密码。可以输入，也可以不输入直接回车（无论输入还是不输入，都会要求你确认一次）。
+确认完毕后，程序将生成一对密钥存放在以下文件夹：
+
+C:\Users\Administrator[这里替换成你的用户名]\.ssh
+密钥分成两个文件，一个私钥（github_rsa）、一个公钥（github_rsa.pub）。
+私钥保存在您的电脑上，公钥交项目负责人添加到服务器上。用户必须拥有与服务器公钥所配对的私钥，才能访问服务器上的代码库。

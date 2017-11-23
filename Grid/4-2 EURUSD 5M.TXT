@@ -1,0 +1,32 @@
+__1__= Martingale 1=on / 2=off
+MMType=2
+__2__=Lot Factor
+LotMultiplikator=1.2
+__3__=Lot size
+_____=true = Fixed Lot, false = % Risk
+LotConst_or_not=true
+Lot=0.03
+RiskPercent=5.0
+__4__=Take Profit Calculation
+atr_p=21.0
+atr_x=1.0
+hilo_x=1.0
+sl_p=5.0
+__5__=Distance between orders (x*TP)
+Step_x=1.2
+__6__=Max Number of trades
+MaxTrades=11
+__7__=Stop Loss
+UseEquityStop=true
+TotalEquityRisk=15.0
+__8__=Order Identifier
+Magic=567955
+gs_88=Autop V4.2 5m
+gs_104=Autop V4.2 5m
+__9__=logo and output
+show_table=true
+show_name=false
+color1=13882323
+color2=36095
+color3=13688896
+color4=16711935

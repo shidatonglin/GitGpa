@@ -1,0 +1,1026 @@
+V1.03 and V2 is the latest version, others may hava bugs.
+Set different value of Indicator_ID_Number, so you can add same indicators to same chart with different settings(TFs)
+The indicator will refresh automatically according to the TF setting.
+You should wait some minitus when the new bar occur to let it refreshing.
+Monday first H4 bar may hava gaps, so do not use the first bar of monday
+Trade with sl or when smaller TFs opposite signal occur, exit
+
+Here's attached an indicator I just finished. It calculates the difference between the 2 previous bars for each currency based on the exact same CCFp calculation.
+
+The results is displayed with colored squares from 1 to 10.
+
+You can select the pairs you want to trade and it will tell you BUY, SELL or NO TRADE.
+
+A "trade level" from 1 to 10 will filter the difference you want to be reached before trade allowed.
+
+Note: this isn't an EA ... just an indicator.
+
+Hope that helps to visualize this setup.
+
+FerruFx
+
+
+https://www.forexfactory.com/showthread.php?p=2275981#post2275981
+
+Absolutely NO need to attach the original CCFp to work. Mine is completly autonome and all calculation is coded inside (no call the CCFp).
+
+
+The "trade level" from 1 to 10.... what's it based on?
+
+The difference between the CCFp value (2 last bars) is multiplied x 1000 and rounded. It gives us a better viewing than values like 0.0006 or so.
+
+
+
+Correct me if i'm wrong, based on the general rules of this method, EUR/USD should Buy now, right ?
+Then i try manually to Buy. 
+Although CCfP-Diff still show No-Trade in EUR/USD.
+
+I wonder if CCfP-Diff will change according to price movement, we'll see.
+I coded a additional filter to avoid small difference. The default is 5 and surely your NO TRADE is because of the level.
+
+CCFp-Diff doesn't move with the price movement because it is based on the difference of the 2 last CCFp values, not the current ones (respect of the initial rules).
+
+FerruFx
+
+
+
+
+Indicator only works on one timeframe, H1. I keep getting a zero divide error whenever I choose another timeframe besides H1?
+
+Please advise,
+
+TimeFreedom
+The CCFp-Diff works on any TF. The first apply you may have a 0 divide due to the refreshing of all pairs. Some of them may don't have datas in your platform. Let few minutes to your platform to refresh correctly. I noticed this on my pc too and all is fine after this.
+
+FerruFx
+
+
+
+
+Thanx FerruFx
+
+i open the indicater and get all pairs NO TRADE 
+
+is it not work yet??
+Please set the Trade_Level to a lower value if you want trade with smaller difference.
+
+Trade_Level from 1 to 10 will match with the 10 colored squares in the indicator column.
+
+FerruFx
+
+
+
+What are the valid/recommend period??? in term of GMT and EST time....
+
+Sonic
+I think that the sunday/monday first candles may not be very accurate due to week-end gap.
+
+FerruFx
+
+
+I think you must waite 8 hrs (2x 4H candles) after the sunday open, before trading. It makes sense, since it is a new week, and like you said - gaps cause problems.
+Exactly. The gap will put you in a wrong trade direction. Gap almost always retrace to original point before decide where to go for the week.
+
+FerruFx
+
+
+FerruFx,
+
+Could you please put as an extern double BarsLookedAt = 240;
+We would have fexiblity that way.
+
+Thanks.
+
+Bruce
+Sorry but I don't understand what will be the purpose of your request.
+
+The indicator doesn't look at 20,50, even 240 bars. It looks at the 2 bars before the current bar.
+
+Do you mean look only at H4 bars?
+
+FerruFx
+
+
+Correct. But if wanting to attach it to a Day chart or a 1H chart....
+... and see the colored squares results based on the H4 (or whatever will be set). Right?
+
+If so, will plan to take a look soon. I have another improvement to make asap (a pop up alert for the pairs to trade!)
+
+FerruFx
+
+
+It is a ranging market now perhaps till tommorrow, all systems that are trend following are not going to work unless yo are extremely lucky. Especially if it is based on MA, including the CCFp.
+You're absolutely right and it is why I put a "trade level" to be set in the CCFp-Diff. It would avoid small moves.
+
+FerruFx
+
+
+FerruFX can you please define trade level for us? It looks like the range goes from 1 to 5. How does this filter work? Thank you.
+Trade_Level from 1 to 10 will match with the 10 colored squares in the indicator column.
+
+If you want to avoid small CCFp lines moves/differences, then you may want to trade only the pairs with both currencies above a certain level.
+
+Example if you set Trade_Level to "3": the indicator will give you a trade suggestion for (i.e) EURUSD Buy only if EUR has at least 3 colored Green and USD at least 3 colored Red.
+
+In an earlier post, I explained that these levels/squares are based on the EXACT same calculation of the original CCFp indicator. I just x1000 and rounded the values to make it more readable.
+
+Hope that makes sense.
+
+FerruFx
+
+FerruFX,
+
+Thanks for the fantastic indicator.
+Is the trade level 1 in your indi. equal 
+to the signals in CCFp v1.0.2b?
+
+Thanks again
+Level 0
+
+FerruFx
+
+Attached the new version of the CCFp-Diff.
+
+1. Added an alert pop up/email for each pair. When both currencies of a pair reach the defined level (opposite color of course).
+
+2. Added the timeframe to look.
+
+FerruFx
+
+
+
+
+Your indicator, CCFp-Diff_v1.01, is great. The new alerts are "just what the doctor ordered". I have a request if you will allow me? Can you change the colors for the pairs that change to Buy and Sell from No Trade, Green for Buy and Red for Sell. One more if you will...Can you also add the level numbers above each currency?
+
+Thanks in advance,
+
+TimeFreedom
+I plan these changes for the next release. Let me some time!
+
+
+
+Could someone advise me on why the indicator will not load onto my chart, i have it in my indicators and when i select it nothing happens?
+
+Thanks
+Try to restart your platform or switch TF. Your platform may doesn't have all datas needed. It needs to refresh for ALL pairs needed at the same time.
+
+FerruFx
+
+
+I also would like to know if, in every case, I need to have the CCFp indi AT LEAST in my experts/indicators folder in order to make run your indicator correctly.
+No need. The CCFp-Diff doesn't call any external indicator. All original calculation is coded inside.
+
+
+
+Besides, what chart I have to attach your indi to? 
+I saw you attached it on GBPUSD (H4) chart, but I think the pair doesn't matter, right?
+Doesn't matter the pair, doesn't matter the TF.
+
+
+here is another suggestion: have the option to only list the pairs that are to be traded.
+Already in since the first version. Just set to false the pairs you don't want.
+
+FerruFx
+
+The problem you are experiencing is due to you running other indicators or EA on the same chart.
+
+TimeFreedom
+Exactly. If other tools use the Comment() function, them the last take the place ... even if the comment is empty.
+
+The next release will have comments in Labels ... so no matter if others tools are involved on the chart.
+
+FerruFx
+
+FerruFX you said to set the indicator to 0 or 1, but is the default 5 not a safer trade?
+It would be yes. It was just to say that to have the exact same results as the CCFp, level has to be set at 0.
+
+FerruFx
+
+
+Here's attached the last version with some improvements:
+
+1. Timer: the remaining time before the end of the candle from the Timeframe the indy is watching
+
+2. Comments in colored labels
+
+3. Value in each column for a quicker viewing
+
+4. Remove the "No Trade" pairs in the (long) suggested pairs listing
+
+5. Remove the NZDGBP. I can't retrieve where I found this one!!!
+
+Hope that will help to trade this system smoothly.
+
+FerruFx
+
+
+
+Hey FerruFX, great work. Just wondering if you could add X and Y axis variables so we could move the comments over to the right side of the chart if someone wanted to?
+Thanks
+Added to my ToDo list for a future release.
+
+FerruFx
+
+
+These trades were placed at 7 minutes past teh new H4 candle. based on trades recommended by CCFp-Diff_[v1.02].ex4.
+Approximately 110 pips in 8plus minutes. Going up with 138 as we speak.
+
+Thanks ES Trader and Ferru. fantastic work.
+
+Edit: Closing at 200 14 minutes later
+
+
+Ronald,
+
+Is it possible to add a routine in the EA that continually tries to execute an open order until it succeeds or for x number of times to try to get around the context busy issues?
+
+Thanks,
+
+saintmo
+It isn't good to treat the 'trade context busy' like this. This error is because more than 2 orders are trying to be filled at the same time. A loop may be solve this but may put the platform busy again and again.
+
+There's some functions in MT4 to check if the context is busy. Then the EA won't send the request for that time.
+
+Example: if(!IsTradeContextBusy() && IsTradeAllowed()) { BUY/SELL }
+
+FerruFx
+
+
+
+I noticed that sometimes I have to refresh/reset the indicator to display the correct pairs to trade.
+
+TimeFreedom
+The indicator doesn't have to be refreshed. It refresh the trades suggestions based on the Timeframe set in the inputs. If set to 240, it will refresh at the beginning of each H4 candle.
+
+FerruF
+
+
+Which version of CCFp you use. I refer to the ORIGINAL one and on my IBFX live USD was 0.0299 and 0.0300 ... so green.
+
+The CCFp-Diff is coded with the ORIGINAL CCFp calculation.
+
+FerruFx
+
+
+Last night, I got big loss too without SL (reverse trade happen).
+
+I refer to FerruFX latest indicator, even with trade level 3 or 4, the pairs running at reverse.
+
+Lesson learnt, must put SL!!
+or the system no more effective??
+I think the exit (instead of SL) must be taken from a lower TF when the signal reverse or be flat.
+
+FerruFx
+
+
+
+
+I think I found the refreshing issue stated by some of you.
+
+The calculation need multi pairs to refresh. As they don't refresh at the same time (only when the pair has its own first tick at the new 4hr candle), the BUY/SELL suggestion has to wait or update each tick to be sure to have the last pairs update.
+
+Actually it isn't the case as the refresh suggestion is once a bar (on the pair where the indy is attached). So some of the pairs haven't refreshed yet.
+
+I will mod this in a future release.
+
+FerruFx
+
+
+I wonder if that's why it was suggested to wait about 15 minutes after the new 4hr bar started?
+I am sure it is ... and I wasn't aware about this. My bad because I knew that a multi pairs system need time to refresh everything.
+
+FerruFx
+
+
+I have used FerruFx 's indi in a MTF setup and have taken a couple of counter trend (against the 4 hr) trades on a 1 hr TF.
+
+Ferru's indicator is easy to adapt to this, I do use the CCFp indie as well to help judge the validity of any position. 
+IMO it all comes together and paints a pretty clear picture. 
+Some of the contributors in this thread have come up with some really good stuff. 
+Great idea to begin with of course.
+Thanks for your feedback.
+
+FerruFx
+
+
+FerruFX,
+
+I can't get CCFp_diff v1.02. to open in M15 & 1HTF. I can open only 4H.
+
+The comment in the expert tab show 'zero divide'.
+
+Sorry if this was already answered. I kinda lost in the thread finding this.
+
+Thanks
+This isn't an issue. The indicator calculate for all pairs them all pairs must have datas. At first apply on certain TF, let the platform download (refresh) its own datas for the requested pairs/TFs.
+
+The 0 divide in our case is because there's no data for at least 1 pair for the requested TF.
+
+FerruFx
+
+
+
+
+FerruFx, if you do any changes on the Indic. down the track could you please make it so if there is no input in the TimeFrame that it takes the TF of the chart. I do a lot of testing and switching back and forward and have to set the indic. each time the the chart window makes it really hard work.
+
+thanks
+If you set the Timeframe to 0, it's the current TF. If you switch, the Timeframe will always the one where you switched.
+
+However, I just noticed that in the comments section, I will have to mode the Xmins because it will display 0 instead of the real TF if set to 0.
+
+FerruFx
+
+
+
+Hi FerruFx,
+
+I might have caught a bug while running live.
+
+In your new indicator v1.02
+GA/GC/GN was showing sell while it should be showing no trade.
+Yes it's the well known suggestion comments refreshing issue previously discussed.
+
+Will come with the new v1.03 release ... very sooooon!
+
+FerruFx
+
+
+
+
+FerruFX the new indicator looks amazing, but it is doing something I don't understand. On some of my charts it is showing only 4 currencies to buy, while on other charts it is showing 6 currencies to buy and on other charts it is showing a mixture of buys and sells for 15 currencies.
+
+I am on IBFX and the indicator is on the default settings which nothing changed. Why would it not be consistent on all charts?
+Again, this is the refreshing issue which I am solving in the new release.
+
+FerruFx
+
+
+
+Here's attached the new release of the CCFp-Diff.
+
+1. Added X and Y offset to move each box (histograms and/or comments) wherever you want on chart
+
+2. Added an Indicator_ID_Number to be set with a different number each time you attach a new indicator on the same chart
+
+3. Solved the refreshing issue
+
+4. Remove the alert for each pair and replace it by an alert at the new bar start (bar from the TF settled in the inputs).
+
+5. Add the TF on the histo box to retrieve the right one if more than 1 is attached on chart
+
+Hope you will enjoy this new one like the previous!
+
+Thanks again for your support and motivation.
+
+FerruFx  CCFp-Diff_[v1.03].ex4 
+
+
+
+H4, but Sonic, Ferru's indicator considers and signals for only H4 no matter which timeframe it is on. Or am I wrong? Because I tested it on H1 and the message "Bar end" still showed 02:33::33
+As stated in an earlier post, the timer is for the TF watched by the indicator, not the one where it is attached.
+
+If you set in the inputs Timeframe = 60, even on a H4 chart the timer will alert each H1 bar because the indicator watch and display the results for a H1 chart.
+
+FerruFx
+
+
+As stated in an earlier post, the timer is for the TF watched by the indicator, not the one where it is attached.
+
+If you set in the inputs Timeframe = 60, even on a H4 chart the timer will alert each H1 bar because the indicator watch and display the results for a H1 chart.
+
+FerruFx
+
+
+
+Just stupid quastion..???
+
+Is it possible Same Trade with diffrent Brokers (have diffrent time ) give result 1 positive and other negitive ??
+
+The brokers have diffrent time
+BUT the price is price not change ( a small change not effect )
+What is important in this strategy is the start of the H4 candle. And YES the results can be drastically different because each broker with different time zone will have a different H4 bar.
+
+
+
+
+Hi Ferrufx.
+
+I have your indi on my chart and it says level 2. Is this the standard setting? Do you get more pairs with level 1? What's the difference? Thanks, Paris
+I set 2 as default as the previous version was at 5 and many of you here stated there's no trade suggestion just because the option was not understood ... or read!
+
+So I try to re-explain again the purpose of the Level setting. Basically, the Level "0" is the EXACT result based on the CCFp indicator. All trades available are suggested according to the last 2 bars CCFp values movement. Increase the level would avoid the small moves.
+
+Hope that helps.
+
+FerruFx
+
+
+
+https://www.forexfactory.com/showthread.php?t=113181&page=56
+
+
+
+Trading System Using Relative Strength-Part 2
+https://www.forexfactory.com/showthread.php?t=116412
+
+Congrats in opening a new thread. Believe me the concept of CCfp is excellant.I did not have the patience or time to devote and hence had to close the thread.I am very sorry If I had hurt others feelings by doing this.
+
+First I want to congratulate Paris for all the positive pips .SHE IS ABSOLUTELY RIGHT ON TARGET.
+
+YES IT WORKS WHEN YOU REVERSE and it happens on ALL platform.
+The reason why it works is simple.Read and Read the the artcle on CCfp at Mq4.
+We all have been looking at the data correctly but have been interpreting it WRONG.
+When we say the currency is +, that means on CCFP indicator it is ABOVE the 0 line and vice versa.
+If you read on CCFP , it says clearly the currencies WILL MOVE TO CENTER. In other words the currency that is above the ZERO line WILL come down and vice versa.
+THIS IS THE REASON WHY PARIS TRADES ARE WORKING GOOD>
+
+So Now Ferrufx should create an indicator showing reverse signals or have an option to do so.
+Thanks
+Kris
+  
+
+Steve if we set a SL for the basket using you management ea and our terminal loses connecton with the broker's server (cable outage, power failure etc), does your EA still protect the basket with the SL that is set? 
+
+I had been told before that a hard SL set for each pair order stays with the order so I'mprotected if there's a power failure.
+
+On the other hand I've been told that floating SLs are terminal-based (user laptop/computer) and if the connecton is lost then you lose the SL protection.
+
+Thanks for any feedback. 
+
+Sandy
+All depend of the coding. One solution is to set the SL in a GlobalVariables. Even if the connection lost or platform close, the GV is still there with the SL.
+
+FerruFx
+
+Ferrufx,
+One more thing I want , is to be able to have the option to keep the system as originally devised by me, that is looking at prevoius 2 CLOSED bars and getting the signals.
+
+Belive me looking at just the present bar does not work. Because the trend has not been established since there had not been enough time.
+I have been trading for 30 years and I can tell you , currency trading is lot easier to trade once there is some amount of trend has developed.
+Thanks
+Kris
+  
+
+Here's attached the new release of the CCFp-Diff.
+
+1. Added an option true/false to display histogram and/or suggestions
+
+2. Added an option true/false to reverse the suggestion (see note below)
+
+3. Added an email alert (start new bar)
+
+4. Added an option true/false to use candle instead of MA in the CCFp calculation
+
+5. Added a checking if all pairs involved in the CCFp calculation received their first tick at bar open (to be tested in real time ... can't be done with market close)
+
+About the reverse option: the thinking was that the reverse might be an option in ranging market, so setting the level would determine the borderline. When setting the level to 3 for example, suggestions for pairs below the level will be reversed, suggestions for pairs above the level will be no-reversed. For those who don't need to filter and want ALL suggestions reversed, then just set the level to 11.
+
+IMPORTANT: the suggestions to be reversed are just signaled with a colored sign BUT for not confusing some newbies who don't take the time to read the thread, the direction Buy/Sell are the standard ones.
+
+Hope you will enjoy this new one like the previous!
+
+Thanks again for your support and motivation.
+
+FerruFx
+
+FerruFx, nice additions to the new version. Can you lease tell us more o the candle instead MA option?I assume it tells us if there is a sequence up or down candle ? looking back over how many candles set by the level input?
+The "bar instead MA" was requested by a member here.
+
+In the CCFp original calculation, I replaced the MA values by the candles values.
+
+FerruFx
+
+
+
+Hi ferrufx....Isnt this something like your old xmeter ea?
+The tool I coded here isn't an EA.
+
+And the !xMeter is based on pure price ... CCFp is based on MA.
+
+But the principle of individual currency strength is the same yes.
+
+FerruFx
+
+PS: I am not the coder of !xMeter. I just coded an EA based on.
+
+
+
+Hi guys,
+
+We can use Orest indicator to determine if the market is ranging or trending...
+
+T101 explains it in post#247 here:
+http://www.forexfactory.com/showthre...=57375&page=17
+
+Respond to question about ranging...
+The Orest indic there are some figures at the bottom. on of them is the total Buys the Other is total sells then the sum of the two. I normally look at the 4 hour column Look at the T: if that value is just within the amount of spread. Say for Ibfx it is the spread is 75 if the total is just runningin that amount is within 100 - 0 and fluctuating around there then you have a ranging market. if you have trade and in profit you can wait it out because it coul dbe just consolidation. I fyou have no trade then dont trade and stay at the side line.
+Julius
+
+
+If the market is ranging we use Ferru indicator and pull a Paris Hilton reversal...
+
+If the market is trending we use Ferru indicator and go normal...
+
+Steve, great work with your trade management EA...
+
+Ferru, new 1.04 indiactor is awesome...
+
+Shiva, Don Of Dubai, love the template and the Jag looks good...
+
+
+Geeve
+In my opinion this suggestion looks like the BEST. I think we all should just stick to this above strategy and trade for ONE week. All should agree to put their success/failure and at the end of one week I think we will have nailed this system real well.
+
+Please don't request anymore changes/alteration of the indicator for a while.
+
+Hope This suggestion would be welcome by everyone.
+
+Thanks
+Kris
+  
+You can find the lastest indicators by clicking on the paperclip shown at the top of each pages of this thread.
+
+If you want to filter the reversed trades suggestions, just set the Level with a number you're comfortable with. Equal or above will be No Reversed, below will be reversed assuming the level is the borderline ranging/trending.
+
+Then follow the Gold sign signaling the pairs to be reversed.
+
+Why do you want put a negative number? This Trade_Level correspond of the colored squares in the histogram table.
+
+If you want filter to reverse with a level 2, set "Use.Reverse.Suggestions" to 'true' and you'll then receive suggestion to reverse on pairs with currencies = or above to 2 in the histo table.
+
+FerruFx
+
+
+Here we go!
+
+Attached the CCFp-Diff_[v1.04-MTF]
+
+1. Exact same calculation
+
+2. Possibility to use up to 4 TFs (and/or)
+
+3. Trade_Level still there
+
+4. No reverse suggested
+
+5. The refreshing check up is based on the smallest TF selected
+
+6. Possibility to set the TF for the Timer and Timer_Alert
+
+7. No histogram table drawn
+
+So basically, the pairs suggested are the one with the same suggestions on all your selected TFs (with the same level).
+
+Wish you a lot of pips.
+
+FerruFx
+
+
+hello kang_gun..
+
+i've tried your setting.. fast 1 slow 2.
+i entered the market about 50 min ago.. seems the results are not good...
+
+drawdown for about 100 pips...
+
+are you doing the same?
+thanks
+Yup... it's start consolidation....
+But I will continue blindly.... just calculate the result at the end of the day...
+
+
+Does the Timer_Timeframe input need to be set to the highest TF setting?
+It's very important to set the Timer_Timeframe ... as your need !!! No restriction. You can even set a TF which you don't have set to trade.
+
+In others words, set it as you want! It has nothing to do with the calculation. Just a bar end alert.
+
+
+So whatever I set it to, it gives a snapshot of the the MTF signals at that moment in time? If that's true, very nice job.
+No, the Timer just give you the time left to the end of the bar you set in Timer_Timeframe.
+
+The suggestions taken from the 4 TFs selected are completely separate from the Timer. Timer is just here to help visualise when a given bar will end.
+
+FerruFx
+
+
+It looks like Mitchp and Kang Gun are using 
+FAST=1 SLOW =2 in the ff 1.04 level 1
+with wonderful results
+
+I beleive the default is fast=3 slow =5 with level 1 being true to the original system set by ES
+
+I'm on FXDD with the fast 3 slow 5 level 1 and taking a beating today ff 1.04b
+
+I did no reversels today the market looked trending early but looks like it flipped the indicator didn't signal to flip too.
+
+Any thougths???
+
+you think FOREX is hard try drycleaning
+Yes.. I use Fast: 1 and Slow: 2 in my demo.
+I think we all here try to find the best setup and strategy.. So, i'm trying to play with the period to see the results for analysis.
+
+nice numbers KG...
+
+Are you reversing your trades?
+
+You using FF 1.04 Level 1?
+No... i'm not reverse it. 
+Yes, i'm using CCFp_diff [v.1.04] Level 1 with Fast = 1 and Slow = 2.
+Just check my report, starting a few pages behind...
+
+
+I close 4th Round 4H 8 minutes before new candle come... with +1.250 pips. Waiting next round...
+
+KG
+
+
+Finally I have gone live. All trades since yeterday morning is in Black.I did 8 trades , all with positive results.I am still using 4 hr closed bars and v1.04 and trade as recommended.
+Kris
+  
+Benq
+I reverse when indicaor says so
+  
+I will open the trade 5-10 minutes after new 4H candle formed and close 5-10 before new candle appears... on this test
+
+KG
+  
+Maybe a better solution would be to wait the new signals and close the previous trades which are no longer suggested or in the opposite way ...
+
+FerruFx
+
+Open a new trade (6th Round 4H) base on recomendation by CCFp_diff [v.1.04] with Fast=1, Slow=2 and Trade level=1. Will see next 4 hours...
+
+KG
+
+Yup.. you are wright. But i'm just test it to see the statistic results at the end with blindly open and close base on 4H candle... At the end we will have to set the strategy... but we need the forward test data first... And this is what i'm doing now
+
+Thank You...
+
+My Report 
+
+So far +2500 pip collected, I have started to use the following strategy for 
+Entry
+
+TF 240 MA True CFF iff 1.04 Current MA as per original settings
+TF 1440 MA True CFF Diff 1.04 current Ma as per original settings
+
+If both Time frame ponts to the same direction I am in trade and about four
+Trades conducted and was positive
+
+I get confused with reverse strategy and I am not using the same
+  
+
+
+Harigp,
+
+Do you mean you're only using H4 and daily on the v104 indi with UseBarInsteadofMA true?
+
+I am using MA True and Bar False
+
+I tried before BAR True with TF 240 and TF 1440 but the result was not
+good. The reason I noticed is
+
+If I use BAR True
+
+A massive down trend or up trend is followed by some amount of buy
+or sell but that is short lived. But the original trend continues after some time
+so I started to use MA as true 
+
+My latest trade was us session completed new four hour bar started and
+TF 240 and TF 1440 was all in agreement and good pip collected
+  
+Just want to clarify things. Using the version 1.04 as is, you are betting that the market will continue to trend. 
+Using the reversal strategy, you're betting the market is ranging or choppy. 
+Is there a point where you would NOT bet on a trending market? 
+What would make you reverse?
+Correct, my decision to reverse the trades is based purely on the fact that the original theory behind the CCFp is that all currencies will revert to the median. Therefore the stronger buy signal means that at some point it will become a strong sell as it retraces toward '0' in the calculation.
+
+I'm assuming my and Paris' results from yesterday are due to the sudden strenght of the Yen and weakness of the others which swung my basket trade by nearly 400 pips in 2 minutes. The Yen movement was in accordance with the 4H trend, so not reversing the signals would've given an entirely better result.
+
+This also shows that using the level setting for a reversal is not necessarily the answer.
+  
+Closed all reversal trades with about +380 pips. Reversal method does work most of the time but it's not perfect. I'm still looking for something that'll work about 90% of the time. Paris
+
+
+Thanks for the tip I knew that but didn't put 2+2 together
+
+I'm testing 2 methods each on FXDD and interbank so I have 4 going
+
+this one is doing the best 2 are over or short $100 the other is up under $1000. But this one is really rock'in
+
+My MM is my weakness IMO. I basicly just look at the trades every so often
+if I see one doing well +30 +50 range I'll do a T/P 30 S/L 100
+If it is doing great 75+ I'll do the same with a 15 T/S
+
+If I'm leaving or going out I'll do a modify order 30TP 100 SL
+If I have some losing trades I'll let them ride for a bit and see if they will turn around. I know in my trades at first I was doing some .20 sizes and even one batch was 1.00 but that was maybe 20 or so out of 125 trades 
+
+I know my draw down is high too over 18%
+The 30 TP 100 SL I saw from R Raygun
+But if anyone could sugest a better MM I love to read about it.
+
+Hey Guys, this will be my last post here as for some reason I'm not really wanted here, I guess my questions are to stupid. So here is my EA based on the original strategy (No reverse and Trade_Level 0)
+Use EA with Indicator, you only need to attach it to one chart, best GBPJPY.
+I'll respond only if there are problems with the EA
+
+Good luck guys and Happy PIP'n 
+
+P.S. Thank you ES Trader for showing your system 
+Attached Files
+File Type: ex4 CCFp.ex4   19 KB | 340 downloads
+File Type: ex4 CCFp EA IBFXm.ex4   29 KB | 347 downloads
+File Type: ex4 CCFp EA nonIBFXm.ex4   31 KB | 384 downloads
+
+
+Amazing... that's what i can say...
+
+I have tested blindly to open trade 5-10 minutes after a new candle at 4H chart starting and close 5-10 minutes before a new candle formed. I use CCFp_diff [v.1.04], Fast 1, Slow 2 and Trade Level 1. I have three Round loss (total -1879 pips) and 9 Round wins (total +13.811 pips).
+
+Base on this test I found that the loss rounds is happened when the trend change (4H TF) from trending to consolidation or from consolidation to trending. The rest is work perfectly, i mean in the trending phase or consolidation phase everything work well. The loss rounds only happenned in the transitions phase from trending to consolidation or from consolidation to trending. (Sorry for my bad english explanations).
+
+I agree with you all that suggested to use MTF to found the best ENTRY. I think that's the best way, but I suggest to use current version. 
+
+Next week I will start to test with the next step... I need more test to find the best way, rules and strategy to trade with basket (not individual pair).
+
+ES, FerruFx, harigp, SM, John Edwards and all thanks for all of you contributions.
+
+See you all next week...
+
+KG
+
+FerruFx: I'm waiting MTF Current version, hope you can share it soon.. God bless you my friend...
+  
+
+
+
+
+
+A personal note about the actual results:
+
+I think that try to lock some settings and conclusions based on actual results will be very dangerous. The market is too uncommon right now. Any system can make similar results with this kind of trending moves.
+
+The MTF version might help us to filter in future ranging markets. Let the market slow down and we will see if we can find something interesting with those tools and methods shared here by you all.
+
+Thanks again to all for your great ideas/methods/etc contributions.
+
+FerruFx
+
+Dear John
+
+Before starting this thread by ES, I was following the thread of chos therory
+as well the Alligator Theorey (called mama Vs baby alligator presented by
+24 year old guy)
+
+I was half way to use the same in Live but the time factor was too long
+to enter in trade and that too I have to monitor one single currency .
+
+But I picked some intersting SMA 30,50 and 100
+
+You can check the chart that in an uptrend the candles in any time frame
+tires to come back to SMA 30 and down trend tries to go back to SMA 30
+
+The terms like Pullback ( uptrend) Reverse(downtrend)
+
+With our present system we all wait for the four hour candle to open to start
+the trade and hit the currency with the reletive strength with the help of
+CFF diff indi
+
+Then we came with the situation of choppy market/consolidation and reverse
+theory came in place.
+
+yesterday the concept of SMA came to my mind and started to use them
+with good result for reverse 
+
+Candles placed between 30 SMA and 50 SMA is period of consolidation
+and better not to enter for trade
+
+The CFF indi also indicates the same
+
+I will be using the sma only for reverse trade
+
+I am attaching the GPY/us$ 15 minutes as well as 1 hour and the 30SMA is
+Red colour
+
+I just asked before, wanting to know from you what amount of change in a currency denotes a Trade_Level change? Like I mean to be at a level 1 did the difference between Bar2 and Bar1 change by 5 points and to be at a Level 3 did the difference need to be by 10 points, etc... ?
+Thank you
+Sorry I missed this question. I always try to answer each question but the thread grow fast ...
+
+So, take the difference between CCFp value[1] and value[2], then x 1000.
+
+If difference is from 0 to 1, plot the first level
+If difference is from 1 to 2, plot the 2nd level
+And so on ...
+
+FerruFx
+
+
+I like to stress that I am not coming up with any new system,I am following
+the RS system only
+
+My Main Indicator is CFF diff1.04current
+
+I started to use SMA only for additional confirmation for Reverse and only for
+reverse.
+
+Another Chart eur/chf 15 minute candles between 50 and 100 sma consolidation
+and again confirmed by CFF diff as no trade
+
+https://www.forexfactory.com/showthread.php?t=116412&page=42
+
+Here's attached the new releases of the CCFp-Diff and CCFp-Diff MTF.
+
+Now both versions have included the option "current" (true/false) instead of having a separate version.
+
+The MTF version have the Alert coded when at least 1 suggestion is there at the new refreshing period (the smallest of the 4 TFs selected in the inputs).
+
+Enjoy.
+
+FerruFx
+
+
+Kang_Gun, May I ask what TFs do you plan to use in CCfp-Diff MTF (current)? Thanks
+Actually we can place CCFp_diff at any TF... all suggestions is depend on your CCFp_diff setup... 
+
+
+I will use CCFp_diff [v1.04_current], CCFp_diff [v2.0] and CCFp_diff [v2.0-MTF]. All MA period will be set to Fast=1, Slow=2 and Trade Level 1. CCFp_diff [v2.0] and CCFp_diff [v2.0-MTF] will be set to "Use current = True".
+
+Here is my plan:
+
+1. I will use CCFp_diff [v2.0] suggestions to decide which pairs should be trade.
+
+2. I will use CCFp_diff [v2.0-MTF] suggestions as a trigger to open the trade.
+
+3. I will use CCFp-diff [v1.04_current] that i set to H4,H1,M15 and M5 for monitoring the price movement. Base on this i will set my EXIT strategy for each pair that already OPEN. and here is my chart setup picture...
+
+Thanks
+
+KG
+
+use bar instead of MA = false (default)
+Reverse = False (default)
+
+I just change :
+
+Use.current = true
+Fast = 1
+Slow = 2
+Trade Level = 1
+
+The others still use default setup....
+
+OK.. CCFp_diff_[v2.0] suggestions are base on H4 (in my setup) conditions and will change if the conditions is change too (current setup). And CCFp_diff_[v2.0-MTF] will show a suggestion to trade when our setup is match... that's why i will use CCFp_diff_[v2.0-MTF] as a trigger.. to find the best ENTRY point.
+
+
+
+Thanks
+
+KG
+  
+I notice that with the newest version(MTF:with it set up for current) that the pairs change constantly with the buy and sell suggestions...It may be hard to test this KG...do you think?
+Yes i know that. That's why i use CCFp_diff [v1.04_current] that i set for H4, H1, M15 and M5 to monitor the price movements. And CCFp_diff-[v2.0-MTF] suggestion tell which pair that's already match with my criteria to ENTRY. 
+
+KG
+  
+Yes this is normal as it is based on the current CCFp values which change constantly.
+
+FerruFx
+
+Yes Bruce... everything work fine..
+I test it only for two days (Monday & Tuesday), since yesterday i'm going live with this strategy. With MTF we could get the best Entry point, and we could easily analyze whole pairs to decided which the best pairs to trade.
+
+looks good to me but it is just the first day....
+
+settings:
+4H
+MM=true
+risk = 2
+SL 1000 (100)
+TP 600 (60)
+Trailing Stop = ture
+Start at = 300 (30)
+Move stop once = false
+CCFP settings = 3 6 1 2
+trade highest = false
+trade level = 2
+reverse = true
+current = true
+
+as far as it stopping: ho can you tell if it is really stopping? I mean, it is not intended to have a trade at all times.
+
+
+OK... I'm using suggestion made by CCFp_diff [V2.0] that i set to current (H4) as reference. Base on that i know which pairs that i should trade base on Current H4 conditions. So, then i'm waiting a signal from CCFp_diff [V2.0-MTF] for execution. For exit i'm using 4 CCFp_diff [V1.04] current that i set to H4, H1, M15 and M5 as my dashboard. M15 is my exit signal. 
+
+Yes, Suggestions from MTF version will appearing and dissapearing so many times. Because it's works base on logic that we set. I just use MTF suggestion as signal only.. if my analysis is agree with MTF i will take it, if not i'm waiting another signal.
+
+
+Hey Guys, 
+
+Here is an updated version of my EA. Please test and let me know how you make out. The Trade levels may be off but I don’t have a lot of time to test so if you guys could compare results with the spreadsheet and the FerruFX indi that would be great 
+What I’ve added is the ability to not trade the Sunday candles if you don’t want. Added MagicNumber to be compatible with different EA’s on the same chart. Added trade level options (Please test). Added the ability to select only the currencies you want the EA to trade just as the FerruFX indicator. 
+I was told that with the old EA if you had trades open still when the new trade bar comes along, the old EA would place more trades so your trades could pile up, and pile up if weren’t closed so I set the new EA to not place more trades if you already have some open from the previous basket open but will still allow trades from other EA’s take place of course. 
+This is a multi trade currency pair EA that only needs to be attached to one chart but with any EA like this, remember to still make sure the currencies you want to trade are listed in your Market Watch list window.
+
+Good luck and happy PIP’n 
+
+
+page52
+
+
+
+
+
+Introduction
+In the article "Theoretical Basis of Building Cluster Indicators for FOREX" we analyzed the operation principle of cluster indicators. The article also introduced main definitions: "overbuying", "overselling" of currencies and balance line. In this article we will dwell on the practical application of indicators. The article includes a number of tactical and strategical methods of trading on them:
+methods, helping to detect potential pairs, on which trends may start;
+procedures of defining entry and exit times;
+methods of tracing long-term and medium-term positions.
+Examples here contain the full cluster, consisting of eight currencies. In practice you can develop any cluster, for example, you can omit primary currencies or currencies, the information on which is excessive for your own trading system. Besides when working with cluster indicators, take into account that they provide information on the basis of all currencies, included into the cluster, and not only currencies of the analyzed currency pair. This factor sometimes distorts useful information. Still signals, received from the indicators, are considered more reliable, because they take into account price fluctuations of all currency pairs, and not only of the analyzed one. 
+
+Projection of Main Elements of Price Charts onto Cluster Indicators
+The price chart contains periods of trend, consolidation periods (flat) and pivot areas. Cluster indicators, like any other  indicator, reflect prices; that is why they cannot forecast future directions and pivot points. But on the other hand the behaviour of cluster indicators differs much from the majority of classical tools; that is why they may display the information about prices, which is not very evident when using other indicators.
+
+
+In examples we used such indicators as CCFp and CCp. These indicators have up to eight information lines, each of them corresponds to a certain currency. Very often in analysis it is interesting to view all lines, but in the examples the lines of currencies, not included into the analyzed pair, will be hidden for better attention to the necessary information. Fig 1 displays one and the same indicator CCFp for the pair EURUSD, but in different forms. The upper indicator reflects all currencies included into the cluster. The one below is the same cluster, consisting of eight currencies, but visible are only lines of EUR and USD, other lines are hidden. It is possible due to the indicator settings (See the article "Theoretical Basis of Building Cluster Indicators for FOREX").
+
+
+Trend Change
+Any price chart reflects the periods of uptrend and downtrend. And the main task of cluster indicators is to determine the change of the direction. There are two types of cluster indicators: trend-following and impulse (or signal). Each type has two modifications: complex, which reflect all cluster currencies, and pair, intended only for a chosen pair. Let us analyze each type.
+
+
+Impulse (Signal) Indicators
+This type includes indicators CCp and Complex_pairs (Complex_pairs - original, Complex_pairs1 - light version). The picture Fig 2 displays Complex_pairs1 (upper one) and CCp (lower one). The indicator CCp displays only two currencies - EUR (blue line) and USD (green line) - other currencies are hidden, though they take part in the cluster. If in this indicator one currency is higher than the other one, it is considered to experience growth relative to each other. When the lines intersect, the balance of the pair currencies is achieved. As a rule, the achievement of the balance point shows that the direction will probably change, i.e. a signal appears.
+
+This indicator not always shows, whether the currency lines intersected or not. For a better visualization of this moment, and for strengthening an amplitude, the indicator Complex_pairs is used. In it the intersection of a signal line with a balance line will coincide with the intersection of currency lines in the indicator CCp. In Fig 2 vertical lines are drawn through the points of intersection of the indicator Complex_pairs with the zero line, and with points of intersection of currency lines in the indicator CCp. All intersections take place in one and the same moment of time.
+
+
+Red vertical lines are drawn in the moment, when a bear signal on the pair EURUSD comes. In the indicator Complex_pairs it is the intersection of the signal line with the zero line downwards, and on the indicator CCp it is the moment, when the dollar line is above the euro line. Green vertical lines give the bull signal for the pair EURUSD. However one cannot use signals produced by impulse indicators directly in trading. In trading it is necessary to take into account the general direction of the pair's movement. For example, one cannot follow signals, which are against the trend. To determine the general direction of a trend either higher timeframes are used, or trend following indicators are analyzed.
+
+Trend-Following Indicators
+This type includes two indicators (See Fig 3): CCFp, which reflects two currencies, and others are hidden, and the indicator CFP, adjusted to the given pair EURUSD. Like in impulse indicators, intersection points of CCFp indicator lines coincide with the intersection of the indicator line with the balance line. As distinct from signal indicators, trend-following indicators do not give trade signals, but they show the general trend, i.e. point out, which signals are more preferable at this moment of time - bull or bear.
+
+
+In Fig 3 such periods of time are marked out. Green areas are periods, when it is more preferable to process bull signals, red areas are bear periods. While trend-following indicators take into account the influence of higher timeframes, they have inertial character and that is why they show the trend change later than other indicators. But at the same time, due to this inertance and dependence on higher timeframes, these indicators show pivot points more exactly. But we will discuss it later, when analyzing trading by indicators. And now let us see, what information is presented by the balance line.
+
+
+Balance Line
+The total sum of all currency lines on the indicators CCFp and CCp in each time unit is equal to zero, irrelative of the amount of currencies in a cluster. So the indicators described reflect not only the mutual fluctuation relative to each other, but also the fluctuation relative to zero. If a currency line is above the zero line, it is said to be "overbought", if it is below the zero line, it is said to be "oversold".
+When a currency is in the zero line area (balance line), it does not experience tension, being in the equilibrium point. The further movement from the balance line will depend on the fact, whether the currency will be sold or bought. On the other hand, when a currency line is in the overbought area (above the zero line) or in the oversold area (below the zero line), the occurring tension forces the currency to return to its balance state - zero line. While in practice we deal with currency pairs, we always have to analyze the dynamics of two pairs. For this purpose there are special indicators CFP and Complex_pairs, which also have the balance line, and the signal line is the sum of two currencies.
+Exactly the same way the zero line in these indicators will show, when the currency pair is in the balance state, and when it experiences this or that tension. Projection from the intersection of indicator lines with the balance line can point out the price, around which the currency is fluctuating, thus determining the periods of flat or trend. At the picture Fig 4 blue vertical lines are drawn through the intersection points of the indicator lines. They allow to determine the equilibrium price for the pair EURUSD. Thus, we can transfer the balance line onto a price chart (purple line). Actually there is a special indicator Complex_balance, which allows to do it automatically. But analyzing this indicator is outside the topic of this article. You can find more information about it on the site Onix.
+
+
+The horizontal balance line on the price charts shows that the currency pair is in flat. If it is sloping, the pair is in trend. Thus, for example, the period between A and B is determined as a trend. The period BC is a strong trend, and CD is its fading. After that in the period DE the pair was in consolidation, and in the period EF we see a new trend on the pair EURUSD.
+
+Tactical Trading Techniques with Cluster Indicators
+To tactical techniques we refer trade signals for short-term and medium-term trading, as well as determination of the nearest levels, which can be used for setting targets and stop signals.
+
+
+Trading Using the Balance Line on a Chart
+As an example we will analyze the pair EURUSD and the same timeframe, described earlier. The initial position is the presence of points A and B, which show that the price is in trend, and two levels of price range on a chart - 1.1635 and 1. 2320 (See Fig 5).
+
+Two horizontal dotted lines are drawn from points A and B. In future they will give support to the uptrend. You can buy starting from these lines in the direction of the uptrend. We buy from the line A' until point C appears. After that we expect the price to return till the line B'. While the point C proved the continuation of the trend, buying from the line B' is appropriate. After the point C we expect the appearance of the next point D and returning to level C' (See Fig 5a).
+
+
+But this returning did not happen, because the trend became stronger and the point D appeared much higher than we expected. The only trend support at this moment can be the continuation of ABC trend main line - line C''. This support was used, but after the pair consolidation period (DE in Fig 4), still a trend continued due to this support. We see, that after the line E appeared, the balance line changed its slope - the trend diminishes and the failure of the support of D' is quite probable, what actually happened and the confirmation is the following: the next point E shows there is no trend any more. The consolidation period will be over only after testing the line C'', from which a trend can be renewed or, in case of its failure, we expect the fall of the pair till C'. The history shows that the trend continued (See picture Fig 5a). The appearance of the point F’ shows that the trend slows down. At the present moment of time we expect the formation of the next point. The functioning supports of the trend are C'', E', F' (information at the moment of writing the article). If the pair trend changes downwards, the target may be the line C', from which the price could not move upwards. 
+Trading Using Impulse Indicators
+In trading on a separate currency pair the indicator Complex_pairs is used. First, general definitions (See Fig 6).
+
+
+For determining a signal we need a clearly expressed Fractal - a sharp peak, which, as a rule, appears after strong movements. The second element is the presence of a subsidiary (supporting) peak. From a fractal through this peak a signal line (a red line on the picture) is drawn. When the indicator line crosses a signal line, an aggressive signal appears. At that, if the fractal was above a zero line, and the intersection was below it, this is a signal to buy the pair analyzed. 
+
+This aggressive signal will be confirmed, when the indicator line crosses a balance line. Trading may be different: you may buy at an aggressive signal, and add or move the stop into lossless area. And sometimes you may act in a conservative way and process only confirmed signals. Besides signals differ in their strength. In Fig 6, variant A is a strong signal, the probability of its processing is very high. Moreover its potential is much higher than that of other variants. Variant B occurs much oftener than variant A, but the signal itself is much weaker, because the subsidiary peak is in the balance line area. The third variant C is the weakest one. As a rule it is more likely to produce loss than profit. The difference from the previous variants is the following: the intersection of the indicator line and the balance line happens earlier, than crossing the signal line. 
+
+It happens so, that the indicator line after crossing the signal line goes down, causing divergence. Such signal is considered to be the strongest one, but it happens not very often. Let us view a practical example - the pair USDJPY is used to show not only successful entries, but unsuccessful signals as well. In Fig 7, signals are produced by the indicator Complex_pairs (original). Timeframe is H4. We analyze signals only for variants A and B, because variant C is very weak.
+
+
+Red signal lines are drawn from a fractal through a subsidiary peak till the intersection with the indicator line. The intersection point gives an aggressive entry signal, Buy_N signals to buy the pair, Sell_N - signals to sell the pair. Through the intersection points vertical lines are drawn; they help to see the entry points on the price chart. The first signal to buy the pair (Buy_1) is very strong, because the subsidiary peak is in the oversold zone. The signal Buy_2, is weaker than the previous one, inspite of the fact, that the fractal itself is quite high, but the subsidiary peak is above the zero line, though the signal point is below the balance line. 
+The same is with the signal Buy_3. But it is even weaker because, the fractal is not very high and the signal line is very close to the balance line.
+The signal Sell_1 is very strong, even though there is a small peak, but it has two subsidiary peaks. Here we need to make one note. The signal comes after the signal line crosses the balance line. You cannot trade by expectancies (open a position before the intersection point, hoping that there will be such an intersection), because the indicator line may move aside and not cross the signal line, or may fail to reach it (See the signal Buy_8). The signal Buy_6 is a very strong signal, like Buy_1. And the same as Buy_7. But exactly Buy_7, despite that it is a very strong signal, did not function, moreover the movement in the opposite direction was very impetuous. That is why any system needs predetermined levels of stop signals. 
+Talking about the indicator Complex_pairs, I would like to mention that it has a light version Complex_pairs1. Their behaviour is almost identical on higher timeframes, but differs on small ones. However Complex_pairs1 may operate with any financial instrument, including stocks, futures and raw materials.
+
+Strategical Trading Techniques in Cluster Indicators
+Strategical trading using cluster indicators consists of determining a potential of new trends formation, entering ling-term positions and their tracing. As a rule trend-following indicators CCFp and CFP are used for these purposes.
+
+
+Searching Promising Currency Pairs
+Not very often, but from time to time there are such moments in the cluster, when the generation of a new trend is expected. In Fig 8a you can see both indicators CCFp (with all currencies) and CFP for the pair EURUSD (daily timeframe).
+
+
+
+The advantage of these indicators is the following: if a currency starts falling it is likely to continue falling due to the inertial character of such indicators. The same is with the pair indicator CFP. In the picture there is a potential for the pair EURUSD to fall, it is marked with a thick red vertical line. This line is shifted from peaks to make sure that euro started falling and USD experiences trend, and the pair EURUSD started falling. It is not seen on peaks in real trading. But in medium-term and long-term meaning it is not so important to catch the peak, because anyway we expect enough profit for not trying to catch a new trend from the pivot point. 
+From the thick red line till the thin red line we see the formation of a new trend, the intersection of currencies on the upper indicator and crossing of the balance line on the lower one prove that the trend has changed. Usually after an intersection point strong movements appear, i.e. a trend starts. As a rule, the trend movement causes the reverse tension of currencies - the potential changes its sign. The thick green line shows the appearance of a potential for the rise of this currency pair, and the thin green line in the intersection point hindered the trend change. But while the potential was not very strong, the movements are not very impetuous. However such movements usually last longer. 
+Now let us view the pair GBPJPY (Fig 8b). We have chosen this pair first because the potential is relevant at the time of writing the article. Second, here we see convergence on both - Pound and Yen. I.e. a signal came earlier, but the currencies drew additional peaks against this potential, which caused formation of bull convergence on this pair. Quite a rear case, it is convenient, because it allows to strengthen the position, opened earlier.
+
+
+
+Tracing Long-Term and Medium-Term Positions
+When medium- and long-term positions are opened, it is necessary to take certain steps, considered to be position tracing. Monitoring of a general direction is controlled by trend-following indicators. A position is closed, when reverse potential appears. Before this you do not always need to close positions fully, because very often one currency changes its direction, while the other currency continues the main one. In such periods currency pairs may be in flat or perform corrections. Accumulation of a position, i.e. opening in the direction of earlier opened positions, may be performed using signal indicators. It is convenient, because stop-signals in this case will be much higher than in intraday trading. The same way using impulse indicators we may fix profit, when signals opposite to the main movement come, or open opposite positions aiming at getting backout or correction without closing main positions. 
+
+Conclusion
+In conclusion I would like to dwell on the question of indicator parameters. They were set for the cluster of eight currencies. If a smaller cluster is used, for example primary currencies are excluded, the parameters can be set more precisely. Besides, the parameters were preadjusted for timeframes higher than H4. If your trading system uses smaller timeframes, the parameters should be adjusted according to your trading system.
+
+It should be also taken into account, that the indicators can be made more sensitive. In this case they will produce signals earlier, though the amount of false signals will be larger. Or on the contrary they can be made more inertial. In this case signals will be rear and come later, but their reliability will be higher. Thus it is recommended to change the indicator parameters not only according to your own trading system, but also taking into account your trading mode and, if necessary, your temperament. 
+
+
+https://www.forexfactory.com/showthread.php?t=116412&page=42
+
+https://www.mql5.com/en/articles/1472
