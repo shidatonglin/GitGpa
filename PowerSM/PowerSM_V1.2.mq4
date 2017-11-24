@@ -52,8 +52,14 @@ double setprofit,cur_profit;
 double lbid = -1;
 int counter = 0;
 datetime curr_time = 0;
+int iMA_OpenDistance = 60;
 int init() 
 {
+  // 5 digit broker
+  int DcD = 1;
+  if((Digits == 5)||(Digits == 3)) DcD = 10;   
+  iMA_OpenDistance  *= DcD;
+
    int i,j,k;
    string ls;
    while (true) {
@@ -213,6 +219,8 @@ void CheckForSignals()
 	  {
 	    if (!RestartNewCycle) return;
 	  }
+
+    FirstLong = (GetMAChannelSignal() == 1);
 	
     if (FirstLong) 
       buysig = true; 
@@ -395,6 +403,20 @@ int getSignal(){
    }
    
 
+}
+
+int GetMAChannelSignal()
+{
+  int Signal = 0;
+  int iMA_Period = 700;
+  double iMA_Signal = iMA(Symbol(), 0, iMA_Period, 0, MODE_SMMA, PRICE_CLOSE, 0);
+  
+  int Ma_Bid_Diff = MathAbs(iMA_Signal - Bid)/Point;
+  
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid > iMA_Signal) Signal = -1;
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid < iMA_Signal) Signal = 1;
+  
+  return(Signal);
 }
 
 /*
