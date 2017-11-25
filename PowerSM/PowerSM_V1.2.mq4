@@ -220,11 +220,16 @@ void CheckForSignals()
 	    if (!RestartNewCycle) return;
 	  }
 
-    FirstLong = (GetMAChannelSignal() == 1);
-	
-    if (FirstLong) 
+    //FirstLong = (GetMAChannelSignal() == 1);
+
+    // For first order type, remove exteranl parameter FirstLong
+    // Find first order type by function GetMAChannelSignal();
+    // if price over the high ma channel(700 SMMA + 600)---sell;
+    // if price below the high ma channel(700 SMMA - 600)---buy;
+	  int firstOrderType = GetMAChannelSignal();
+    if (firstOrderType==1) 
       buysig = true; 
-    else 
+    else if(firstOrderType==-1)
       sellsig = true;
       
     lpos = 0;
@@ -413,8 +418,8 @@ int GetMAChannelSignal()
   
   int Ma_Bid_Diff = MathAbs(iMA_Signal - Bid)/Point;
   
-  if(Ma_Bid_Diff > iMA_OpenDistance && Bid > iMA_Signal) Signal = -1;
-  if(Ma_Bid_Diff > iMA_OpenDistance && Bid < iMA_Signal) Signal = 1;
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid > iMA_Signal) Signal = -1;//sell
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid < iMA_Signal) Signal = 1;//buy
   
   return(Signal);
 }
