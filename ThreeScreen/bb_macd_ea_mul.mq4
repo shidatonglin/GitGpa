@@ -1,64 +1,9 @@
-/*         
-          o=======================================o
-         //                                       \\ 
-         O                Gold H4                   O
-        ||               by tony tong               ||
-        ||             (xxxxxxxxxxxxx)              ||                    
-        ||           shidatonglin@gmail.com         ||
-         O           __________________             O
-         \\                                       //
-          o=======================================o                                                               
-
-*/
 
 #property copyright     "shidatonglin"
 #property link          "shidatonglin@gmail.com (mp me on FF rather than by email)"
 #property description   "RSIOMA Ichomu"
 #property version       "0.1"
 #property strict
-
-/*
-https://www.forexfactory.com/showthread.php?t=670701
-https://www.forexfactory.com/showthread.php?t=656770#acct.42
-Basic Tools
- - Heiken Ashi
- - 2 Lines Moving Average (Period: 5, Method: Smoothed, Shift: 2, Apply: High and Low)
- - Ichimoku kinko hyo (Tenkan_sen: 9, Kijun_sen: 26, Senkou_Span_B: 60)
- (My Template is below)
-
-My Rule
-Entry Buy
- - Heiken Ashi is above Ichimoku kinko hyo Cloud
- - Heiken Ashi is above Moving Average (Apply: High)
- - Open Next Bar
-
-Exit Buy
- - Heiken Ashi is below Moving Average (Apply: Low)
- - Open Next Bar.
-
-Entry Sell
- - Heiken Ashi is below Ichimoku kinko hyo Cloud
- - Heiken Ashi is below Moving Average (Apply: Low)
- - Open Next Bar
-
-Exit Sell
- - Heiken Ashi is above Moving Average (Apply: High)
- - Open Next Bar.
-
-Money Management
- Deposit (minimum): 1,000 (Fixed lot MM_Martingale_Start 0.01 and MM_Martingale_LossFactor +0.01 per each 1000 units of the deposit currency.)
- Martingale Start: 0.01
- Leverage: 1:500
- Martingale After Loss Factor: +0.01
- Example 1:
- Martingale Start = 0.01
- Martingale After Loss Factor 0.01+0.01 = 0.02 .. >> 0.03 >> 0.04 >> 0.05 until Profitable last exit after that restart initial lot = 0.01
-
-
-Currency Gold / XAUUSD
-Time Frame: H4
-
-*/
 
 //--- external variables
 
