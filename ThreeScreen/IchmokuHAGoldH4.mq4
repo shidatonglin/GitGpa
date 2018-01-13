@@ -112,7 +112,7 @@ extern int HoursBetween = 0;
 extern int MaPeriod = 5;
 extern int MaShift  = 2;
 extern int MaMode = MODE_SMMA;
-extern String EA_Comment = "IchimokuV1.0";
+extern string EA_Comment = "IchimokuV1.0";
 //--- inner variables
 
 int ThisBarTrade           =  0;
