@@ -230,13 +230,13 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     //double ADX=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,0,0);
     //double ADXMA=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,1,0);
-    double DIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,0);
-    double DIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,0);
+    //double DIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,0);
+    //double DIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,0);
 
     //double PADX=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,0,1);
     //double PADXMA=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,1,1);
-    double PDIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,1);
-    double PDIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,1);
+    //double PDIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,1);
+    //double PDIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,1);
 
     double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , 0);
     double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , 0);
@@ -285,8 +285,8 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
    
    //if ( (ADX > ADXMA && PADX <= PADXMA)) cross = true;  
    
-   if (DIP > DIM) direction = 1;
-   if (DIP < DIM) direction = -1;
+   //if (DIP > DIM) direction = 1;
+   //if (DIP < DIM) direction = -1;
    
    //if ( cross==true && direction == 1 ) signal_1 = 1;
    //if ( cross==true && direction == -1 ) signal_1 = -1;
@@ -294,12 +294,12 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
    //if ( ichomuTrend==1 && direction == 1 && ichomuTrendLowTF == 1 && maChannelCross == 1) signal_1 = 1;
    //if ( ichomuTrend==-1 && direction == -1 && ichomuTrendLowTF == -1 && maChannelCross == -1) signal_1 = -1;
    if ( ichomuTrendLowTF == 1 && maChannelCross == 1) {
-    if(getPreviousSignalBarShift(-1)<3)
+    if(getPreviousSignalBarShift(1)<3)
     signal_1 = 1;
    }
    
    if ( ichomuTrendLowTF == -1 && maChannelCross == -1){
-    if(getPreviousSignalBarShift(1)<3)
+    if(getPreviousSignalBarShift(-1)<3)
     signal_1 = -1;
    } 
    
@@ -309,7 +309,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
       +"maChannelCross-->"+maChannelCross+ "\n"
       +"signal_1--->"+signal_1+ "\n"
       +"getPreviousSignalBarShift(1)--->"+getPreviousSignalBarShift(1) + "\n"
-      +"getPreviousSignalBarShift(-1)--->"+getPreviousSignalBarShift(-1) + "\n"
+      +"getPreviousSignalBarShift(-1)--->"+getPreviousSignalBarShift(-1) + "\n" 
    );
   if (r_signal==true) signal_2 = -signal_1;
    
