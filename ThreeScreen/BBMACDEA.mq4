@@ -333,11 +333,11 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
    if ( bb_macd_signal == -1 && maChannelCross == -1) signal_1 = -1;
    
    signal_2 = signal_1;
-   Comment(
-      "ichomuTrend--->"+ichomuTrend
-      +"\ndirection--->"+direction
-      +"\nsignal_1--->"+signal_1
-   );
+   // Comment(
+   //    "ichomuTrend--->"+ichomuTrend
+   //    +"\ndirection--->"+direction
+   //    +"\nsignal_1--->"+signal_1
+   // );
 
    Comment("preUp--->"+preUp + "\n"
                   "preDown--->"+preDown + "\n"
