@@ -326,7 +326,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
      //--- Long
      if(signal_2==1 && (lastOrderTime==0 || sqGetBarsFromOrderOpen(lastOrderTime) >= HoursBetween))
      {
-        result=OrderSend(Symbol(),OP_BUY,mlots,Ask,Slippage,0,0,EA_Comment+"- long "+DoubleToStr(mlots,2)+" on "+Symbol(),MagicNumber,0,Turquoise);
+        result=OrderSend(Symbol(),OP_BUY,mlots,Ask,Slippage,0,0,EA_Comment+"- long on "+Symbol(),MagicNumber,0,Turquoise);
         if(result>0)
         {
          ThisBarTrade = Bars;
@@ -347,7 +347,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
      //--- Short rule
      if(signal_2==-1 && (lastOrderTime==0 || sqGetBarsFromOrderOpen(lastOrderTime) >= HoursBetween))
      {   
-        result=OrderSend(Symbol(),OP_SELL,mlots,Bid,Slippage,0,0,EA_Comment+"- short "+DoubleToStr(mlots,2)+" on "+Symbol(),MagicNumber,0,Magenta);
+        result=OrderSend(Symbol(),OP_SELL,mlots,Bid,Slippage,0,0,EA_Comment+"- short on "+Symbol(),MagicNumber,0,Magenta);
         if(result>0)
         {
          ThisBarTrade = Bars;
