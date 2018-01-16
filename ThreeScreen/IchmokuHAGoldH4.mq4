@@ -434,7 +434,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 }
 
 int getPreviousSignalBarShift(int direction){
-  for(int i=0;i<10;i++){
+  for(int i=0;i<20;i++){
     double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , i);
     double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , i);
     // HA close value
@@ -464,7 +464,7 @@ int getPreviousSignalBarShift(int direction){
       if(haClose > maLow) return i;
     }
   }
-  return 10;
+  return 20;
 }
 
 //----------------------------------------------------------------------------
