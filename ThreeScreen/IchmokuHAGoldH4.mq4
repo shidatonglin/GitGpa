@@ -238,8 +238,8 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
     //double PDIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,1);
     //double PDIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,1);
 
-    double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , 0);
-    double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , 0);
+    double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , shift);
+    double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , shift);
 
     int ichomuTrend = 0;
     if(Close[shift] > IchomuA && Close[shift] > IchomuB){
@@ -255,10 +255,10 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     //Lower TF ichimoku
     int ichomuTrendLowTF = 0;
-    double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , 0);
-    double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , 0);
+    double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , shift);
+    double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , shift);
     // HA close value
-    double haClose = iCustom(NULL, Low_TF, "Heiken Ashi", 0,0,0,0, 3, 1);
+    double haClose = iCustom(NULL, Low_TF, "Heiken Ashi", 0,0,0,0, 3, shift);
 
     if(haClose > IchomuC && haClose > IchomuD){
       ichomuTrendLowTF = 1;
@@ -270,8 +270,8 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     // Two MA channels
     int maChannelCross = 0;
-    double maHigh = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_HIGH, 1);
-    double maLow = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_LOW, 1);
+    double maHigh = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_HIGH, shift);
+    double maLow = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_LOW, shift);
     if(haClose > maHigh) maChannelCross = 1;
     if(haClose < maLow) maChannelCross = -1;
 
@@ -434,7 +434,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 }
 
 int getPreviousSignalBarShift(int direction){
-  for(int i=0;i<20;i++){
+  for(int i=shift;i<20;i++){
     double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , i);
     double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , i);
     // HA close value
