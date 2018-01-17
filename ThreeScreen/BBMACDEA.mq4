@@ -217,8 +217,8 @@ int start(){
          case classic: mlots = blots; break;
     };
 
-    double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , 0);
-    double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , 0);
+    double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , shift);
+    double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , shift);
 
     int ichomuTrend = 0;
     if(Close[shift] > IchomuA && Close[shift] > IchomuB){
