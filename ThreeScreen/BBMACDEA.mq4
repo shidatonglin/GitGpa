@@ -257,18 +257,18 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
     // ExtMapBuffer4[i]=Lowerband[i];//Lowerband
     int bb_macd_signal = 0;
     double preValue,curValue;
-    double preUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, 1);
-    double preDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, 1);
-    double preUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, 1);
-    double preDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, 1);
+    double preUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, 1+shift);
+    double preDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, 1+shift);
+    double preUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, 1+shift);
+    double preDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, 1+shift);
 
     if(preUp==EMPTY_VALUE) preValue = preDown;
     if(preDown==EMPTY_VALUE) preValue = preUp;
 
-    double curUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, 0);
-    double curDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, 0);
-    double curUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, 0);
-    double curDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, 0);
+    double curUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, shift);
+    double curDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, shift);
+    double curUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, shift);
+    double curDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, shift);
 
     if(curUp==EMPTY_VALUE) curValue = curDown;
     if(curDown==EMPTY_VALUE) curValue = curUp;
@@ -288,10 +288,10 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     //Lower TF ichimoku
     int ichomuTrendLowTF = 0;
-    double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , 0);
-    double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , 0);
+    double IchomuC = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 3 , shift);
+    double IchomuD = iIchimoku(NULL, Low_TF , 12 , 29 , 52 , 4 , shift);
     // HA close value
-    double haClose = iCustom(NULL, Low_TF, "Heiken Ashi", 0,0,0,0, 3, 1);
+    double haClose = iCustom(NULL, Low_TF, "Heiken Ashi", 0,0,0,0, 3, shift);
 
     if(haClose > IchomuC && haClose > IchomuD){
       ichomuTrendLowTF = 1;
@@ -303,8 +303,8 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     // Two MA channels
     int maChannelCross = 0;
-    double maHigh = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_HIGH, 1);
-    double maLow = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_LOW, 1);
+    double maHigh = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_HIGH, shift);
+    double maLow = iMA( NULL, Low_TF, MaPeriod, MaShift, MaMode, PRICE_LOW, shift);
     if(haClose > maHigh) maChannelCross = 1;
     if(haClose < maLow) maChannelCross = -1;
 
