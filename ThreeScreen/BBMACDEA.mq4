@@ -62,9 +62,9 @@ Time Frame: H4
 
 //--- external variables
 
-extern int adx_ln = 50;                             //ADX p
-extern int adxma_ln = 25;                           //ADXMA p
-extern ENUM_MA_METHOD adxma_type = MODE_SMA;        //ADXMA type
+//extern int adx_ln = 50;                             //ADX p
+//extern int adxma_ln = 25;                           //ADXMA p
+//extern ENUM_MA_METHOD adxma_type = MODE_SMA;        //ADXMA type
 
 extern double atr_p = 15;                           //ATR/HiLo period for dynamic SL/TP/TS
 extern double atr_x = 1;                            //ATR weight in SL/TP/TS
@@ -140,6 +140,7 @@ int init() {
 
 int deinit() {
   if(ObjectFind( "HUD" )>=0)ObjectDelete( "HUD" );
+  if(ObjectFind( "displaySignal" )>=0)ObjectDelete( "displaySignal" );
   int obj_total=ObjectsTotal();
   PrintFormat("Total %d objects",obj_total);
   for(int i=obj_total-1;i>=0;i--)
@@ -163,46 +164,36 @@ int deinit() {
 */
 
 int start(){
-drawInfo();             
-if (gui) {
-      
-      HUD();
-      Popup();
-      Earnings();
-}
+  drawInfo();             
+  if (gui) {
+    HUD();
+    Popup();
+    Earnings();
+  }
 
-if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
-   Comment("");
-            
-   double spread = MarketInfo(Symbol(), MODE_SPREAD) * Point;
-   double pt = MarketInfo (Symbol(), MODE_POINT);
-
+  if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
+    double spread = MarketInfo(Symbol(), MODE_SPREAD) * Point;
+    double pt = MarketInfo (Symbol(), MODE_POINT);
 //--- Max DD calculation
-
-
-
 //--- ATR for Sl / HiLo MA for SL
-   int atrTf = atr_tf;
-   double atr1 = iATR(NULL,atrTf,atr_p,0);// Period 15
-   double atr2 = iATR(NULL,atrTf,2*atr_p,0);// Period 30
-   double atr3 = NormalizeDouble(((atr1+atr2)/2)*atr_x,Digits);// Atr weight 1 in SL?TP/TSL
+    int atrTf = atr_tf;
+    double atr1 = iATR(NULL,atrTf,atr_p,0);// Period 15
+    double atr2 = iATR(NULL,atrTf,2*atr_p,0);// Period 30
+    double atr3 = NormalizeDouble(((atr1+atr2)/2)*atr_x,Digits);// Atr weight 1 in SL?TP/TSL
    
-   double ma1 = iMA(NULL,atrTf,atr_p*2,0,MODE_LWMA,PRICE_HIGH,0);// 30 MA High
-   double ma2 = iMA(NULL,atrTf,atr_p*2,0,MODE_LWMA,PRICE_LOW,0);// 30 Ma Low
-   double ma3 = NormalizeDouble(hilo_x*(ma1 - ma2),Digits);// HiLo weight 0.5 in SL/TP/TSL
+    double ma1 = iMA(NULL,atrTf,atr_p*2,0,MODE_LWMA,PRICE_HIGH,0);// 30 MA High
+    double ma2 = iMA(NULL,atrTf,atr_p*2,0,MODE_LWMA,PRICE_LOW,0);// 30 Ma Low
+    double ma3 = NormalizeDouble(hilo_x*(ma1 - ma2),Digits);// HiLo weight 0.5 in SL/TP/TSL
 
 //--- SL & TP calculation 
-
-   double sl_p1 = NormalizeDouble(Point*sl_p/((1/(Close[0]+(spread/2)))),Digits);
-   
-   double SLp = sl_p1 + atr3 + ma3;// (atr15+atr30)/2 + (ma30High-ma30Low)/2
-   double TPp = NormalizeDouble(pf*(SLp),Digits); // 3.5 SLP
-   double TSp = NormalizeDouble(tf*(SLp),Digits); //0.8 SLP
+    double sl_p1 = NormalizeDouble(Point*sl_p/((1/(Close[0]+(spread/2)))),Digits);
+    double SLp = sl_p1 + atr3 + ma3;// (atr15+atr30)/2 + (ma30High-ma30Low)/2
+    double TPp = NormalizeDouble(pf*(SLp),Digits); // 3.5 SLP
+    double TSp = NormalizeDouble(tf*(SLp),Digits); //0.8 SLP
    
 //--- Win / Loss Counter
-
-   int WinCount = Counta(6);
-   int LossCount = Counta(5);
+    int WinCount = Counta(6);
+    int LossCount = Counta(5);
 
 //--- Money Management
 
@@ -226,18 +217,6 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
          case classic: mlots = blots; break;
     };
 
-    //--- Inner Indicators
-
-    //double ADX=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,0,0);
-    //double ADXMA=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,1,0);
-    double DIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,0);
-    double DIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,0);
-
-    //double PADX=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,0,1);
-    //double PADXMA=iCustom(Symbol(),0,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,1,1);
-    double PDIP=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,2,1);
-    double PDIM=iCustom(Symbol(),High_TF,"ADX+ADXMA",adx_ln,adxma_ln,adxma_type,3,1);
-
     double IchomuA = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 3 , 0);
     double IchomuB = iIchimoku(NULL, High_TF , 12 , 29 , 52 , 4 , 0);
 
@@ -248,7 +227,6 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
     if(Close[shift] < IchomuA && Close[shift] < IchomuB){
       ichomuTrend = -1;
     }
-
 
     //RSIOMA siginal
     // ExtMapBuffer1[i]=bbMacd[i];   //Uptrend bbMacd
@@ -310,50 +288,29 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
     //--- Signals
 
-  int signal_1 = 0, signal_2 = 0, direction = 0;
-  bool is_trend = false, cross = false;
+    int signal_1 = 0, signal_2 = 0, direction = 0;
+    bool is_trend = false, cross = false;
 
-   //if (ADX > ADXMA) is_trend = true;
-   //if (ADX < ADXMA) is_trend = false;
+    if ( bb_macd_signal == 1 && maChannelCross == 1) signal_1 = 1;
+    if ( bb_macd_signal == -1 && maChannelCross == -1) signal_1 = -1;
    
-   //if ( (ADX > ADXMA && PADX <= PADXMA)) cross = true;  
+    signal_2 = signal_1;
    
-   if (DIP > DIM) direction = 1;
-   if (DIP < DIM) direction = -1;
-   
-   //if ( cross==true && direction == 1 ) signal_1 = 1;
-   //if ( cross==true && direction == -1 ) signal_1 = -1;
-
-   //if ( ichomuTrend==1 && direction == 1 && ichomuTrendLowTF == 1 && maChannelCross == 1) signal_1 = 1;
-   //if ( ichomuTrend==-1 && direction == -1 && ichomuTrendLowTF == -1 && maChannelCross == -1) signal_1 = -1;
-   // if ( ichomuTrendLowTF == 1 && maChannelCross == 1) signal_1 = 1;
-   // if ( ichomuTrendLowTF == -1 && maChannelCross == -1) signal_1 = -1;
-
-   if ( bb_macd_signal == 1 && maChannelCross == 1) signal_1 = 1;
-   if ( bb_macd_signal == -1 && maChannelCross == -1) signal_1 = -1;
-   
-   signal_2 = signal_1;
-   // Comment(
-   //    "ichomuTrend--->"+ichomuTrend
-   //    +"\ndirection--->"+direction
-   //    +"\nsignal_1--->"+signal_1
-   // );
-
-   Comment("preUp--->"+preUp + "\n"
-                  "preDown--->"+preDown + "\n"
-                  "preUpBand--->"+preUpBand + "\n"
-                  "preDownBand--->"+preDownBand + "\n"
-                  "curUp--->"+curUp + "\n"
-                  "curDown--->"+curDown + "\n"
-                  "curUpBand--->"+curUpBand + "\n"
-                  "curDownBand--->"+curDownBand + "\n"
-                  "curValue--->"+curValue + "\n"
-                  "preValue--->"+preValue + "\n"
-                  "curDown==EMPTY_VALUE--->"+(curDown==EMPTY_VALUE) + "\n"
-                  "bb_macd_signal--->"+(bb_macd_signal) + "\n"
-                  "maChannelCross--->"+(maChannelCross) + "\n"
-                  "signal_1--->"+(signal_1) + "\n"
-                  );
+    Comment("preUp--->"+preUp + "\n"
+            "preDown--->"+preDown + "\n"
+            "preUpBand--->"+preUpBand + "\n"
+            "preDownBand--->"+preDownBand + "\n"
+            "curUp--->"+curUp + "\n"
+            "curDown--->"+curDown + "\n"
+            "curUpBand--->"+curUpBand + "\n"
+            "curDownBand--->"+curDownBand + "\n"
+            "curValue--->"+curValue + "\n"
+            "preValue--->"+preValue + "\n"
+            "curDown==EMPTY_VALUE--->"+(curDown==EMPTY_VALUE) + "\n"
+            "bb_macd_signal--->"+(bb_macd_signal) + "\n"
+            "maChannelCross--->"+(maChannelCross) + "\n"
+            "signal_1--->"+(signal_1) + "\n"
+            );
   if (r_signal==true) signal_2 = -signal_1;
    
 /*       ________________________________________________
