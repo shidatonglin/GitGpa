@@ -343,6 +343,7 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
    Comment(
       "ichomuTrendLowTF--->"+ichomuTrendLowTF+ "\n"
       +"maChannelCross-->"+maChannelCross+ "\n"
+      +"bb_macd_signal-->"+bb_macd_signal+ "\n"
       +"signal_1--->"+signal_1+ "\n"
       +"getPreviousSignalBarShift(1)--->"+getPreviousSignalBarShift(1) + "\n"
       +"getPreviousSignalBarShift(-1)--->"+getPreviousSignalBarShift(-1) + "\n" 
