@@ -275,6 +275,42 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
     if(haClose > maHigh) maChannelCross = 1;
     if(haClose < maLow) maChannelCross = -1;
 
+
+    //BB_MACD siginal
+    // ExtMapBuffer1[i]=bbMacd[i];   //Uptrend bbMacd
+    // ExtMapBuffer2[i]=bbMacd[i];   // downtrend bbMacd
+    // ExtMapBuffer3[i]=Upperband[i];// Upperband
+    // ExtMapBuffer4[i]=Lowerband[i];//Lowerband
+    int bb_macd_signal = 0;
+    // double preValue,curValue;
+    // double preUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, 1+shift);
+    // double preDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, 1+shift);
+    // double preUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, 1+shift);
+    // double preDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, 1+shift);
+
+    // if(preUp==EMPTY_VALUE) preValue = preDown;
+    // if(preDown==EMPTY_VALUE) preValue = preUp;
+
+    double curUp= iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 0, shift);
+    double curDown = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 1, shift);
+    double curUpBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 2, shift);
+    double curDownBand = iCustom( NULL, Low_TF, "PakuAK_Marblez", 12,26,10,1.0, 3, shift);
+
+    if(curUp==EMPTY_VALUE) {curValue = curDown;bb_macd_signal=1;}
+    if(curDown==EMPTY_VALUE) {curValue = curUp;bb_macd_signal=-1}
+
+    // if(preValue > 0 && curValue > 0){
+    //   if(curValue > curUpBand && preValue < preUpBand){
+    //     bb_macd_signal=1;
+    //   }
+    // }
+
+    // if(preValue < 0 && curValue < 0){
+    //   if(curValue < curDownBand && preValue > preDownBand){
+    //     bb_macd_signal=-1;
+    //   }
+    // }
+
     //--- Signals
 
   int signal_1 = 0, signal_2 = 0, direction = 0;
@@ -293,12 +329,12 @@ if (Bars != ThisBarTrade ) {// To avoid more order in one bar!
 
    //if ( ichomuTrend==1 && direction == 1 && ichomuTrendLowTF == 1 && maChannelCross == 1) signal_1 = 1;
    //if ( ichomuTrend==-1 && direction == -1 && ichomuTrendLowTF == -1 && maChannelCross == -1) signal_1 = -1;
-   if ( ichomuTrendLowTF == 1 && maChannelCross == 1) {
+   if ( ichomuTrendLowTF == 1 && maChannelCross == 1 && bb_macd_signal==1) {
     if(getPreviousSignalBarShift(1)<3)
     signal_1 = 1;
    }
    
-   if ( ichomuTrendLowTF == -1 && maChannelCross == -1){
+   if ( ichomuTrendLowTF == -1 && maChannelCross == -1&& bb_macd_signal==-1){
     if(getPreviousSignalBarShift(-1)<3)
     signal_1 = -1;
    } 
