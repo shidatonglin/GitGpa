@@ -308,8 +308,18 @@ int GetSignal()
   
   int Ma_Bid_Diff = MathAbs(iMA_Signal - Bid)/vPoint;
   
-  if(Ma_Bid_Diff > iMA_OpenDistance && Bid > iMA_Signal) Signal = -1;
-  if(Ma_Bid_Diff > iMA_OpenDistance && Bid < iMA_Signal) Signal = 1;
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid > iMA_Signal) {
+    // Sell signal
+    if(iClose( NULL, PERIOD_M5, 1 ) - iOpen( NULL, PERIOD_M5, 1 ) < 0){
+      Signal = -1;
+    }
+  }
+  if(Ma_Bid_Diff > iMA_OpenDistance && Bid < iMA_Signal) {
+    // Buy signal
+    if(iClose( NULL, PERIOD_M5, 1 ) - iOpen( NULL, PERIOD_M5, 1 ) > 0){
+      Signal = 1;
+    }
+  }
   
   return(Signal);
 }
