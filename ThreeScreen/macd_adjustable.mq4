@@ -1,12 +1,13 @@
 //+------------------------------------------------------------------+
-//|                                              MACD Adjustable.mq4 |
-//|                      Copyright © 2006, MetaQuotes Software Corp. |
-//|                                        http://www.metaquotes.net |
+//|                                         macd_adjustable1.mq4.mq4 |
+//|                        Copyright 2018, MetaQuotes Software Corp. |
+//|                                             https://www.mql5.com |
 //+------------------------------------------------------------------+
-#property link      "Histo & Line adjustments by cja"
-#property link      "2 colour Histogram added by cja" 
- 
-#property  indicator_separate_window
+#property copyright "Copyright 2018, MetaQuotes Software Corp."
+#property link      "https://www.mql5.com"
+#property version   "1.00"
+#property strict
+#property indicator_separate_window
 #property  indicator_buffers 4
 #property indicator_color1 DodgerBlue
 #property indicator_color2 LightSalmon
@@ -16,7 +17,6 @@
 #property indicator_width2 2
 #property indicator_width3 1
 #property indicator_width4 2
-
 
 //---- indicator parameters
 extern int FastEMA=12;
@@ -38,9 +38,10 @@ double     ind_buffer5[];
 //+------------------------------------------------------------------+
 //| Custom indicator initialization function                         |
 //+------------------------------------------------------------------+
-int init()
+int OnInit()
   {
-//---- 2 additional buffers are used for counting.
+//--- indicator buffers mapping
+      //---- 2 additional buffers are used for counting.
    IndicatorBuffers(6);
 //---- drawing settings
 
@@ -66,23 +67,34 @@ int init()
    IndicatorDigits(MarketInfo(Symbol(),MODE_DIGITS)+2);
    
 //---- 5 indicator buffers mapping
-   if(!SetIndexBuffer(0,ind_buffer3a) &&
-      !SetIndexBuffer(1,ind_buffer3b) &&
-      !SetIndexBuffer(2,ind_buffer4) &&      
-      !SetIndexBuffer(3,ind_buffer5) &&
-      !SetIndexBuffer(4,ind_Buffer1) &&      
-      !SetIndexBuffer(5,ind_Buffer2))
-      Print("cannot set indicator buffers!");
+   SetIndexBuffer(0,ind_buffer3a);
+      SetIndexBuffer(1,ind_buffer3b);
+      SetIndexBuffer(2,ind_buffer4);      
+      SetIndexBuffer(3,ind_buffer5);
+      SetIndexBuffer(4,ind_Buffer1);      
+      SetIndexBuffer(5,ind_Buffer2);
+      //Print("cannot set indicator buffers!");
 //---- name for DataWindow and indicator subwindow label
    IndicatorShortName("MACD  ("+FastEMA+","+SlowEMA+","+SignalSMA+")");
 //---- initialization done
-   return(0);
+//---
+   return(INIT_SUCCEEDED);
   }
 //+------------------------------------------------------------------+
-//| Moving Average of Oscillator                                     |
+//| Custom indicator iteration function                              |
 //+------------------------------------------------------------------+
-int start()
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &time[],
+                const double &open[],
+                const double &high[],
+                const double &low[],
+                const double &close[],
+                const long &tick_volume[],
+                const long &volume[],
+                const int &spread[])
   {
+//---
    int limit;
    int counted_bars=IndicatorCounted();
 //---- check for possible errors
@@ -95,11 +107,11 @@ int start()
       ind_buffer4[i]=iMA(NULL,0,FastEMA,0,MODE_EMA,PRICE_CLOSE,i)
                         -iMA(NULL,0,SlowEMA,0,MODE_EMA,PRICE_CLOSE,i);
 //---- signal line counted in the 2-nd additional buffer
-   for(i=0; i<limit; i++)
+   for(int i=0; i<limit; i++)
       ind_buffer5[i]=iMAOnArray(ind_buffer4,Bars,SignalSMA,0,MODE_EMA,i);
 //---- main loop
    double value=0;
-   for(i=0; i<limit; i++)
+   for(int i=0; i<limit; i++)
       {
          ind_buffer3a[i]=0.0;
          ind_buffer3b[i]=0.0;      
@@ -108,7 +120,8 @@ int start()
          if (value<0) ind_buffer3b[i]=value*Histo_Size;
       }   
 //---- done
-   return(0);
+   //return(0);
+//--- return value of prev_calculated for next call
+   return(rates_total);
   }
 //+------------------------------------------------------------------+
-

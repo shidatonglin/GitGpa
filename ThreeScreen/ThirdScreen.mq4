@@ -247,8 +247,8 @@ int start() {
    //--------------------------------------
    // Go Short 1  
    if (((sqGetMarketPosition() == 0) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && (iWPR(NULL, 60 , 14 , 1) > (-20))))))
    {
       sqOpenOrder("NULL", OP_SELL, getOrderSize(1000, OP_SELL ), getOrderPrice(1000), "", 1000, "Go Short 1 ");
@@ -256,8 +256,8 @@ int start() {
    //--------------------------------------
    // Go Short 2 
    if (((sqGetBarsSinceEntry(1000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -266,8 +266,8 @@ int start() {
    //--------------------------------------
    // Go Short 3 
    if (((sqGetBarsSinceEntry(2000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -276,8 +276,8 @@ int start() {
    //--------------------------------------
    // Go Short 4 
    if (((sqGetBarsSinceEntry(3000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -286,8 +286,8 @@ int start() {
    //--------------------------------------
    // Go Short 5 
    if (((sqGetBarsSinceEntry(4000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -296,8 +296,8 @@ int start() {
    //--------------------------------------
    // Go Short 6 
    if (((sqGetBarsSinceEntry(5000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -306,8 +306,8 @@ int start() {
    //--------------------------------------
    // Go Short 7 
    if (((sqGetBarsSinceEntry(6000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -316,8 +316,8 @@ int start() {
    //--------------------------------------
    // Go Short 8 
    if (((sqGetBarsSinceEntry(7000) >= HoursBetween) 
-      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
-      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 0, 1) < 0) 
+      && ((iCustom(NULL, 10080 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
+      && ((iCustom(NULL, 1440 , "macd_adjustable", 12 , 24 , 9 , 3 , True , True , 1, 1) < 0) 
       && ((iWPR(NULL, 60 , 14 , 1) > (-20)) 
       && (sqGetMarketPosition() != 1))))))
    {
@@ -3070,7 +3070,7 @@ int sqGetBarsFromOrderOpen(int expBarsPeriod) {
    datetime currentTime = TimeCurrent();
 
    int numberOfBars = 0;
-   for(int i=i; i<expBarsPeriod+10; i++) {
+   for(int i=0; i<expBarsPeriod+10; i++) {
       if(opTime < Time[i]) {
          numberOfBars++;
       }
@@ -3086,7 +3086,7 @@ int sqGetBarsFromOrderClose(int expBarsPeriod) {
    datetime currentTime = TimeCurrent();
 
    int numberOfBars = 0;
-   for(int i=i; i<expBarsPeriod+10; i++) {
+   for(int i=0; i<expBarsPeriod+10; i++) {
       if(clTime < Time[i]) {
          numberOfBars++;
       }
@@ -3994,7 +3994,7 @@ int sqGetOpenBarsForOrder(int expBarsPeriod) {
    datetime currentTime = TimeCurrent();
 
    int numberOfBars = 0;
-   for(int i=i; i<expBarsPeriod+10; i++) {
+   for(int i=0; i<expBarsPeriod+10; i++) {
       if(opTime < Time[i]) {
          numberOfBars++;
       }
